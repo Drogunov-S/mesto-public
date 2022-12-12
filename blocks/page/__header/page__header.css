@@ -1,7 +1,6 @@
 .page__header {
-    margin-top: 28px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 42px;
+    margin: 28px auto 42px;
     transition: margin linear 0.2s;
 }
 

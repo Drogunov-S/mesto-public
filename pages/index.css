@@ -4,8 +4,21 @@
 /* page */
 @import url('../blocks/page/page.css');
 @import url('../blocks/page/__header/page__header.css');
+@import url('../blocks/page/__profile/page__profile.css');
 
 /* header */
 
 @import url('../blocks/header/__logo/header__logo.css');
 @import url('../blocks/header/header.css');
+
+/* profile */
+@import url('../blocks/profile/profile.css');
+@import url('../blocks/profile/__avatar-image/profile__avatar-image.css');
+@import url('../blocks/profile/__avatar/profile__avatar.css');
+@import url('../blocks/profile/__info/profile__info.css');
+@import url('../blocks/profile/__full-name/profile__full-name.css');
+@import url('../blocks/profile/__edit-botton/profile__edit-botton.css');
+@import url('../blocks/profile/__position/profile__position.css');
+@import url('../blocks/profile/__add-botton/profile__add-botton.css');
+
+/*  */

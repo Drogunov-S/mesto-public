@@ -1,0 +1,24 @@
+.profile__add-botton {
+    background-image: url('../../../images/add-botton.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 17.021276%;
+    width: 100%;
+    outline: 2px solid white;
+    border-radius: 1%;
+    cursor: pointer;
+}
+
+.profile__add-botton:hover {
+    opacity: .6;
+}
+
+@media screen and (min-width: 933px) {
+    .profile__add-botton {
+        margin-top: 32.5px;
+        max-width: 150px;
+        padding-bottom: 0;
+        aspect-ratio: 3 / 1;
+        margin-left: auto;
+    }
+}

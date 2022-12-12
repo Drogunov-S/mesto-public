@@ -3,8 +3,9 @@
 
 /* page */
 @import url('../blocks/page/page.css');
-
+@import url('../blocks/page/__header/page__header.css');
 
 /* header */
 
+@import url('../blocks/header/__logo/header__logo.css');
 @import url('../blocks/header/header.css');

@@ -1,0 +1,12 @@
+.page__header {
+    margin-top: 28px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: margin linear 0.2s;
+}
+
+@media screen and (min-width: 933px) {
+    .page__header {
+        margin-top: 45px;
+    }
+}

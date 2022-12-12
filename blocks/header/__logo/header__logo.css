@@ -1,5 +1,14 @@
 .header__logo {
-    max-width: 103.74px;
-    margin-top: 28px;
-    margin-left: 27px;
+    width: 103.74px;
+    padding-left: 27px;
+    padding-bottom: 31.6px;
+    transition: padding linear 0.2s;
+}
+
+@media screen and (min-width: 933px) {
+    .header__logo {
+        width: 142px;
+        padding-left: 0px;
+        padding-bottom: 41px;
+    }
 }

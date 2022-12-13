@@ -2,3 +2,4 @@
 .fus*
 */*fuse*
 .editorconfig
+.vscode/settings.json

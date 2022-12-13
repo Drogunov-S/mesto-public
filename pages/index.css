@@ -40,3 +40,19 @@
 /* footer */
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
+
+/* popup */
+
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/__close/popup__close.css');
+@import url('../blocks/popup/__close/popup__close.css');
+@import url('../blocks/popup/popup/__window/popup__window.css');
+
+
+
+/* window */
+@import url('../blocks/window/window.css');
+@import url('../blocks/window/__title/window__title.css');
+@import url('../blocks/window/__fullname/window__fullname.css');
+@import url('../blocks/window/__position/window__position.css');
+@import url('../blocks/window/__save-profile/window__save-profile.css');

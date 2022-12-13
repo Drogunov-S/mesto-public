@@ -2,76 +2,86 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <title>Mesto</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
 </head>
 
 <body class="page">
-    <header class="header page__header">
-        <img src="images/logo.svg" alt="Логотип" class="header__logo">
-    </header>
-    <div class="profile page__profile">
-        <figure class="profile__avatar">
-            <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar-image">
-        </figure>
-        <div class="profile__info">
-            <p class="profile__full-name">Жак-Ив Кусто</p>
-            <p class="profile__position">Исследователь океана</p>
-            <botton class="profile__edit-botton"></botton>
-        </div>
-        <div class="profile__add-botton"></div>
+  <header class="header page__header">
+    <img src="images/logo.svg" alt="Логотип" class="header__logo">
+  </header>
+  <div class="profile page__profile">
+    <figure class="profile__avatar">
+      <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar-image">
+    </figure>
+    <div class="profile__info">
+      <p class="profile__full-name">Жак-Ив Кусто</p>
+      <p class="profile__position">Исследователь океана</p>
+      <botton class="profile__edit-botton"></botton>
     </div>
+    <div class="profile__add-botton"></div>
+  </div>
 
-    <main class="content">
-        <div class="cards content__cards">
-            <figure class="card">
-                <img src="./images/carachaevsk.jpg" alt="Фото монастыря. Карачаевск" class="card__image">
-                <figcaption class="card__caption">Карачаевск
-                <botton class="card__like"></botton></figcaption>
-            </figure>
-            <figure class="card">
-                <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
-                <figcaption class="card__caption">Гора Эльбрус
-                <botton class="card__like"></botton></figcaption>
+  <main class="content">
+    <div class="cards content__cards">
+      <figure class="card">
+        <img src="./images/carachaevsk.jpg" alt="Фото монастыря. Карачаевск" class="card__image">
+        <figcaption class="card__caption">Карачаевск
+          <botton class="card__like"></botton>
+        </figcaption>
+      </figure>
 
+      <figure class="card">
+        <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
+        <figcaption class="card__caption">Гора Эльбрус
+          <botton class="card__like"></botton>
+        </figcaption>
 
-            </figure>
-            <figure class="card">
-                <img src="./images/dombai.jpg" alt="Лес Домбай" class="card__image">
-                <figcaption class="card__caption">Домбай
-                <botton class="card__like"></botton></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="./images/dombai.jpg" alt="Лес Домбай" class="card__image">
+        <figcaption class="card__caption">Домбай
+          <botton class="card__like"></botton>
+        </figcaption>
 
+      </figure>
+      <figure class="card">
+        <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
+        <figcaption class="card__caption">Гора Эльбрус
+          <botton class="card__like"></botton>
+        </figcaption>
 
-            </figure>
-            <figure class="card">
-                <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
-                <figcaption class="card__caption">Гора Эльбрус
-                <botton class="card__like"></botton></figcaption>
+      </figure>
+      <figure class="card">
+        <img src="./images/dombai.jpg" alt="Фотография Домбай" class="card__image">
+        <figcaption class="card__caption">Домбай
+          <botton class="card__like"></botton>
+        </figcaption>
+      </figure>
 
-
-            </figure>
-            <figure class="card">
-                <img src="./images/dombai.jpg" alt="Фотография Домбай" class="card__image">
-                <figcaption class="card__caption">Домбай
-                <botton class="card__like"></botton></figcaption>
-
-
-            </figure>
-            <figure class="card">
-                <img src="./images/carachaevsk.jpg" alt="Карачаевск" class="card__image">
-                <figcaption class="card__caption">Карачаево-Черкесия
-                <botton class="card__like"></botton></figcaption>
-
-
-            </figure>
-        </div>
-    </main>
-    <footer class="footer page__footer">
-        <img src="./images/Copyright.svg" alt="Авторские права" class="footer__copyright">
-    </footer>
+      <figure class="card">
+        <img src="./images/carachaevsk.jpg" alt="Карачаевск" class="card__image">
+        <figcaption class="card__caption">Карачаево-Черкесия
+          <botton class="card__like"></botton>
+        </figcaption>
+      </figure>
+    </div>
+  </main>
+  <footer class="footer page__footer">
+    <img src="./images/Copyright.svg" alt="Авторские права" class="footer__copyright">
+  </footer>
+  <div class="popup">
+    <div class="popup__close"></div>
+    <div class="popup__window window">
+      <h2 class="window__title">Редактировать профиль</h2>
+      <input class="window__fullname" type="text" name="" id="" value="Жак-Ив Кусто">
+      <input class="window__position" type="text" name="" id="" value="Исследователь океана">
+      <button class="window__save-profile" type="submit">Сохранить</button>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -1,0 +1,11 @@
+.window__fullname {
+	font-size: 14px;
+	line-height: 16.94px;
+  width: 100%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 24px;
+  padding-bottom: 13px;
+  padding-left: 0;
+}

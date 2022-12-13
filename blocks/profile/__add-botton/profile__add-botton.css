@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-position: center;
     padding-bottom: 17.021276%;
-    width: 100%;
+    width: calc(100% - 4px);
     outline: 2px solid white;
     border-radius: 2px;
     cursor: pointer;

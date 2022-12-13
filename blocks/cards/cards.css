@@ -1,4 +1,13 @@
 .cards {
-    display: grid;
-    row-gap: 20px;
+    max-width: 880px;
+    display: flex;
+    gap: 20px 19px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media screen and (min-width: 933px) {
+    .cards {
+        column-gap: 17px 
+    }
 }

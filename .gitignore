@@ -1,4 +1,4 @@
 ,gitignore
 .fus*
 */*fuse*
-,editorconfig
+.editorconfig

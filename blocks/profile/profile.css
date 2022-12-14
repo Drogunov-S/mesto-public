@@ -8,6 +8,7 @@
 
 @media screen and (min-width: 933px) {
     .profile {
+        padding-right: 3px;
         align-items: flex-start;
         max-width: 880px;
         flex-direction: row;

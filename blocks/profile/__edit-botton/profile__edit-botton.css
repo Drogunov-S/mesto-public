@@ -4,12 +4,12 @@
     background-size: 7.5px;
     background-position: center;
     outline: 1px solid white;
-    padding-bottom: 18px;
-    padding-left: 18px;
+    padding-bottom: 16px;
+    padding-left: 16px;
     cursor: pointer;
     position: absolute;
-    right: 19px;
-    top: 8px;
+    right: 20px;
+    top: 10.5px;
 }
 
 .profile__edit-botton:hover {
@@ -18,9 +18,9 @@
 
 @media screen and (min-width: 933px) {
     .profile__edit-botton {
-        padding-bottom: 24px;
-        padding-left: 24px;
-        top: 15px;
+        padding-bottom: 22px;
+        padding-left: 22px;
+        top: 16px;
         right: 0;
         background-size: 10px 10px;
     }

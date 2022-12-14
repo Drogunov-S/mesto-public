@@ -4,3 +4,6 @@
 .editorconfig
 .vscode/*
 .vscode
+.notes.md
+.gitignore
+notes.md

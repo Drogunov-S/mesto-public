@@ -1,0 +1,25 @@
+.popup__save-profile {
+  color: #FFFFFF;
+  background-color: black;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  line-height: 16.94px;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 14.5px 0;
+}
+
+.popup__save-profile:hover {
+  opacity: .8;
+}
+
+
+@media screen and (min-width: 933px) {
+  .popup__save-profile {
+    font-size: 18px;
+    line-height: 22px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}

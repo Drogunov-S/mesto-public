@@ -2,7 +2,7 @@
     background-image: url('../../../images/add-botton.svg');
     background-repeat: no-repeat;
     background-position: center;
-    padding-bottom: 17.021276%;
+    padding-bottom: 16.021%;
     width: calc(100% - 4px);
     outline: 2px solid white;
     border-radius: 2px;
@@ -15,10 +15,11 @@
 
 @media screen and (min-width: 933px) {
     .profile__add-botton {
-        margin-top: 32.5px;
-        max-width: 150px;
+        margin-top: 34.5px;
+        max-width: 146.5px;
         padding-bottom: 0;
-        aspect-ratio: 3 / 1;
+        aspect-ratio: 3 / 0.95;
+        background-size: 22px;
         margin-left: auto;
     }
 }

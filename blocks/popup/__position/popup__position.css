@@ -1,4 +1,4 @@
-.window__position {
+.popup__position {
   font-size: 14px;
   line-height: 16.94px;
   width: 100%;
@@ -6,8 +6,13 @@
   border-left: none;
   border-right: none;
   padding-bottom: 10px;
-  margin-bottom: 45px;
-  margin-bottom: 45px;
   margin-bottom: 42px;
   padding-left: 0;
+}
+
+
+@media screen and (min-width: 933px) {
+  .popup__position {
+    margin-bottom: 46px;
+  }
 }

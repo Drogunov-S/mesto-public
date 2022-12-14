@@ -1,0 +1,17 @@
+.popup__window {
+  position: relative;
+  max-width: 282px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px 22px;
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-right: auto;
+  }
+  
+  @media screen and (min-width: 933px) {
+    .popup__window {
+      max-width: 430px;
+      padding: 34px 36px 37px;
+    }
+  }

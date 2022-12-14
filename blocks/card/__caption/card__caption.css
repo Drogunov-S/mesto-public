@@ -1,9 +1,10 @@
 .card__caption {
-    font-size: 24px;
-    line-height: 28.05px;
-    font-weight: 900;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    margin: 0;
+  max-width: 180px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
 }

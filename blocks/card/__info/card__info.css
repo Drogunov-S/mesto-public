@@ -1,8 +1,9 @@
 .card__info {
   display: flex;
+  align-items: center;
   max-width: 246px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 21px;
+  margin-right: auto;
+  margin-left: auto;
   padding-left: 6px;
 }

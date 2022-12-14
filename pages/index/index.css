@@ -22,9 +22,9 @@
 @import url('../../blocks/profile/__avatar/profile__avatar.css');
 @import url('../../blocks/profile/__info/profile__info.css');
 @import url('../../blocks/profile/__full-name/profile__full-name.css');
-@import url('../../blocks/profile/__edit-botton/profile__edit-botton.css');
+@import url('../../blocks/profile/__edit-btm/profile__edit-btm.css');
 @import url('../../blocks/profile/__position/profile__position.css');
-@import url('../../blocks/profile/__add-botton/profile__add-botton.css');
+@import url('../../blocks/profile/__add-btn/profile__add-botton.css');
 
 /* cards */
 @import url('../../blocks/cards/cards.css');

@@ -1,23 +1,24 @@
-.profile__edit-botton {
+.profile__edit-btn {
+    background: transparent;
+    border: 0;
     background-image: url('../../../images/edit-pen.svg');
     background-repeat: no-repeat;
     background-size: 7.5px;
     background-position: center;
     outline: 1px solid white;
-    padding-bottom: 16px;
-    padding-left: 16px;
+    padding: 0 0 16px 16px;
     cursor: pointer;
     position: absolute;
     right: 20px;
     top: 10.5px;
 }
 
-.profile__edit-botton:hover {
+.profile__edit-btn:hover {
     opacity: .6;
 }
 
 @media screen and (min-width: 933px) {
-    .profile__edit-botton {
+    .profile__edit-btn {
         padding-bottom: 22px;
         padding-left: 22px;
         top: 16px;

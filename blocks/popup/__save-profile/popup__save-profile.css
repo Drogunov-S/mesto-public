@@ -4,7 +4,7 @@
   width: 100%;
   border: none;
   font-size: 14px;
-  line-height: 16.94px;
+  line-height: 17px;
   border-radius: 2px;
   cursor: pointer;
   padding: 14.5px 0;
@@ -13,7 +13,6 @@
 .popup__save-profile:hover {
   opacity: .8;
 }
-
 
 @media screen and (min-width: 933px) {
   .popup__save-profile {

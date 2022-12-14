@@ -11,7 +11,7 @@ document
   .addEventListener('submit', handleFormSubmit);
 
 document
-  .querySelector('.profile__edit-botton')
+  .querySelector('.profile__edit-btn')
   .addEventListener('click', openPopup);
 
 document.querySelector('.popup__close')

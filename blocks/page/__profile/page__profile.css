@@ -1,12 +1,11 @@
 .page__profile {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 39px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 39px;
 }
 
-
 @media screen and (min-width: 933px) {
-    .page__profile {
-        margin-bottom: 45px;
-    }
+  .page__profile {
+    margin-bottom: 45.6px;
+  }
 }

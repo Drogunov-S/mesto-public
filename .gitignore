@@ -7,3 +7,6 @@
 .notes.md
 .gitignore
 notes.md
+/.idea/codeStyles/codeStyleConfig.xml
+.idea/*
+.idea

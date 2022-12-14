@@ -7,11 +7,11 @@
   margin-left: auto;
   box-sizing: border-box;
   margin-right: auto;
+}
+
+@media screen and (min-width: 933px) {
+  .popup__container {
+    max-width: 430px;
+    padding: 34px 36px 37px;
   }
-  
-  @media screen and (min-width: 933px) {
-    .popup__container {
-      max-width: 430px;
-      padding: 34px 36px 37px;
-    }
-  }
+}

@@ -13,7 +13,7 @@
 <header class="header page__header">
   <img src="images/logo.svg" alt="Логотип" class="header__logo">
 </header>
-<div class="profile page__profile">
+<section class="profile page__profile">
   <figure class="profile__avatar">
     <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar-image">
   </figure>
@@ -23,10 +23,10 @@
     <button class="profile__edit-btn"></button>
   </div>
   <button class="profile__add-btm"></button>
-</div>
+</section>
 
 <main class="content">
-  <div class="cards content__cards">
+  <section class="cards content__cards">
     <figure class="card">
       <img src="./images/carachaevsk.jpg" alt="Фото монастыря. Карачаевск" class="card__image">
       <figcaption class="card__info">
@@ -41,24 +41,24 @@
         <h2 class="card__caption">Гора Эльбрус</h2>
         <button class="card__like"></button>
       </figcaption>
-
     </figure>
+
     <figure class="card">
       <img src="./images/dombai.jpg" alt="Лес Домбай" class="card__image">
       <figcaption class="card__info">
         <h2 class="card__caption">Домбай</h2>
         <button class="card__like"></button>
       </figcaption>
-
     </figure>
+
     <figure class="card">
       <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
       <figcaption class="card__info">
         <h2 class="card__caption">Гора Эльбрус</h2>
         <button class="card__like"></button>
       </figcaption>
-
     </figure>
+
     <figure class="card">
       <img src="./images/dombai.jpg" alt="Фотография Домбай" class="card__image">
       <figcaption class="card__info">
@@ -74,23 +74,23 @@
         <button class="card__like"></button>
       </figcaption>
     </figure>
-  </div>
+  </section>
 </main>
 <footer class="footer page__footer">
   <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
 </footer>
-<div class="popup page__popup">
+<section class="popup page__popup">
   <div class="popup__container">
     <div class="popup__close"></div>
     <form class="popup__form">
       <h2 class="popup__title">Редактировать профиль</h2>
       <input aria-label="Изменить имя" class="popup__fullname" type="text" value="">
       <input aria-label="Изменить профессию" class="popup__position" type="text" value="">
-      <button class="popup__save-profile" type="submit">Сохранить</button>
+      <button class="popup__btn-save-profile" type="submit">Сохранить</button>
     </form>
   </div>
-</div>
-<script src="./pages/index/index.js"></script>
+</section>
+<script src="./pages/index/index.js" type="module"></script>
 </body>
 
 </html>

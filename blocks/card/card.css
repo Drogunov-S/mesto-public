@@ -26,13 +26,15 @@
   margin-top: 22px;
 }
 
-@media screen and (min-width: 933px){
-.card {
-  padding-bottom: 25px;
-}
+@media screen and (min-width: 933px) {
+  .card {
+    padding-bottom: 25px;
+  }
+
   .card:nth-child(3) {
     padding-bottom: 24px;
   }
+
   .card:nth-child(5) {
     padding-bottom: 27px;
   }

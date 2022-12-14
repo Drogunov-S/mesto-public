@@ -1,11 +1,11 @@
 .page__footer {
-    margin: 49px auto 31px;
-    transition: margin-bottom linear 0.2s;
+  margin: 49px auto 31px;
+  transition: margin-bottom linear 0.2s;
 }
 
 @media screen and (min-width: 933px) {
-    .page__footer {
-        margin-top: 66px;
-        margin-bottom: 60px;
-    }
+  .page__footer {
+    margin-top: 66px;
+    margin-bottom: 60px;
+  }
 }

@@ -1,28 +1,25 @@
 .profile__edit-btn {
-    background: transparent;
-    border: 0;
-    background-image: url('../../../images/edit-pen.svg');
-    background-repeat: no-repeat;
-    background-size: 7.5px;
-    background-position: center;
-    outline: 1px solid white;
-    padding: 0 0 16px 16px;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 10.5px;
+  border: 0;
+  background-size: 7.5px;
+  background: transparent url('../../../images/edit-pen.svg') no-repeat center;
+  outline: 1px solid white;
+  padding: 0 0 16px 16px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 10.5px;
 }
 
 .profile__edit-btn:hover {
-    opacity: .6;
+  opacity: .6;
 }
 
 @media screen and (min-width: 933px) {
-    .profile__edit-btn {
-        padding-bottom: 22px;
-        padding-left: 22px;
-        top: 16px;
-        right: 0;
-        background-size: 10px 10px;
-    }
+  .profile__edit-btn {
+    padding-bottom: 22px;
+    padding-left: 22px;
+    top: 16px;
+    right: 0;
+    background-size: 10px 10px;
+  }
 }

@@ -1,17 +1,16 @@
 .profile__full-name {
-    font-style: medium;
-    font-weight: 500;
-    font-size: 27px;
-    line-height: 32.68px;
-    margin-top: 0;
-    margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 32.68px;
+  margin-top: 0;
+  margin-bottom: 8px;
 }
 
 @media screen and (min-width: 933px) {
-    .profile__full-name {
-        font-size: 42px;
-        line-height: 48px;
-        margin-bottom: 7px;
-        background-size: 22px;
-    }
+  .profile__full-name {
+    font-size: 42px;
+    line-height: 48px;
+    margin-bottom: 7px;
+    background-size: 22px;
+  }
 }

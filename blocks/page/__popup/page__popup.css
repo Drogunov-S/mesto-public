@@ -8,14 +8,14 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   content: '';
   z-index: -1;
 }
 
 @media screen and (min-width: 933px) {
   .popup {
-   top: 195px;
-  } 
- }
+    top: 195px;
+  }
+}

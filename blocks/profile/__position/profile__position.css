@@ -1,14 +1,14 @@
 .profile__position {
-    font-size: 14px;
-    line-height: 17px;
-    margin-top: 0;
-    margin-bottom: 35px;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 0;
+  margin-bottom: 35px;
 }
 
 @media screen and (min-width: 933px) {
-    .profile__position {
-        font-size: 18px;
-        line-height: 21.78px;
-        margin-bottom: 0;
-    }
+  .profile__position {
+    font-size: 18px;
+    line-height: 21.78px;
+    margin-bottom: 0;
+  }
 }

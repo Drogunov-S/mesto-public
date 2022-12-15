@@ -1,21 +1,8 @@
 .page__popup {
-  position: fixed;
-  top: 123px;
-}
-
-.page__popup::before {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
-  content: '';
-  z-index: -1;
-}
-
-@media screen and (min-width: 933px) {
-  .popup {
-    top: 195px;
-  }
 }

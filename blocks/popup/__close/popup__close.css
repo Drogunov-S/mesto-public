@@ -2,18 +2,16 @@
   position: absolute;
   top: -36px;
   right: 0;
-  background-image: url('../../../images/close-icon.svg');
-  background-repeat: no-repeat;
+  background: transparent url('../../../images/close-icon.svg') no-repeat;
   background-size: cover;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  border: 0;
+  padding: 0 0 20px 20px;
   cursor: pointer;
 }
 
 .popup__close:hover {
   opacity: .6;
 }
-
 
 @media screen and (min-width: 933px) {
   .popup__close {

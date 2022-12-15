@@ -4,38 +4,23 @@
   margin: 0;
   background-color: #FFFFFF;
   padding-bottom: 25px;
+  line-height: 0;
 }
 
 .card:nth-child(3) {
-  padding-bottom: 26px;
+  padding-bottom: 28px;
 }
 
 .card:nth-child(5) {
-  padding-bottom: 26px;
+  padding-bottom: 28px;
 }
 
-.card:nth-child(3) > .card__info:nth-child(2) {
-  margin-top: 22px;
-}
-
-.card:nth-child(5) > .card__info:nth-child(2) {
-  margin-top: 20px;
-}
-
-.card:nth-child(6) > .card__info:nth-child(2) {
-  margin-top: 22px;
-}
-
-@media screen and (min-width: 933px) {
-  .card {
-    padding-bottom: 25px;
-  }
-
+@media screen and (min-width: 933px){
   .card:nth-child(3) {
-    padding-bottom: 24px;
+    padding-bottom: 26px;
   }
 
   .card:nth-child(5) {
-    padding-bottom: 27px;
+    padding-bottom: 26px;
   }
 }

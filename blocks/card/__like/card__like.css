@@ -1,9 +1,10 @@
 .card__like {
   background: transparent url('../../../images/like.svg') no-repeat center;
-  background-size: 22px;
+  background-size: 22px 19px;
   aspect-ratio: 1 / 1;
   border: 0;
-  padding: 0 22px 0 0;
+  padding-bottom: 19px;
+  padding-right: 22px;
   margin-right: 5px;
   margin-left: auto;
   cursor: pointer;

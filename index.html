@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index/index.css">
+  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 
@@ -14,11 +14,9 @@
   <img src="images/logo.svg" alt="Логотип" class="header__logo">
 </header>
 <section class="profile page__profile" aria-label="Профиль">
-  <figure class="profile__avatar">
-    <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar-image">
-  </figure>
+  <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar-image">
   <div class="profile__info">
-    <p class="profile__full-name">Жак-Ив Кусто</p>
+    <h1 class="profile__full-name">Жак-Ив Кусто</h1>
     <p class="profile__position">Исследователь океана</p>
     <button class="profile__edit-btn"></button>
   </div>
@@ -27,70 +25,71 @@
 
 <main class="content">
   <section class="cards content__cards">
-    <figure class="card">
+    <article class="card">
       <img src="./images/carachaevsk.jpg" alt="Фото монастыря. Карачаевск" class="card__image">
-      <figcaption class="card__info">
+      <div class="card__info">
         <h2 class="card__caption">Карачаевск</h2>
-        <button class="card__like"></button>
-      </figcaption>
-    </figure>
+        <div class="card__like"></div>
+      </div>
+    </article>
 
-    <figure class="card">
+    <article class="card">
       <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
-      <figcaption class="card__info">
+      <div class="card__info">
         <h2 class="card__caption">Гора Эльбрус</h2>
-        <button class="card__like"></button>
-      </figcaption>
-    </figure>
+        <div class="card__like"></div>
+      </div>
+    </article>
 
-    <figure class="card">
+    <article class="card">
       <img src="./images/dombai.jpg" alt="Лес Домбай" class="card__image">
-      <figcaption class="card__info">
+      <div class="card__info">
         <h2 class="card__caption">Домбай</h2>
-        <button class="card__like"></button>
-      </figcaption>
-    </figure>
+        <div class="card__like"></div>
+      </div>
+    </article>
 
-    <figure class="card">
+    <article class="card">
       <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
-      <figcaption class="card__info">
+      <div class="card__info">
         <h2 class="card__caption">Гора Эльбрус</h2>
-        <button class="card__like"></button>
-      </figcaption>
-    </figure>
+        <div class="card__like"></div>
+      </div>
+    </article>
 
-    <figure class="card">
+    <article class="card">
       <img src="./images/dombai.jpg" alt="Фотография Домбай" class="card__image">
-      <figcaption class="card__info">
+      <div class="card__info">
         <h2 class="card__caption">Домбай</h2>
-        <button class="card__like"></button>
-      </figcaption>
-    </figure>
+        <div class="card__like"></div>
+      </div>
+    </article>
 
-    <figure class="card">
+    <article class="card">
       <img src="./images/carachaevsk.jpg" alt="Карачаевск" class="card__image">
-      <figcaption class="card__info">
+      <div class="card__info">
         <h2 class="card__caption">Карачаево-Черкесия</h2>
-        <button class="card__like"></button>
-      </figcaption>
-    </figure>
+        <div class="card__like"></div>
+      </div>
+    </article>
   </section>
 </main>
+
 <footer class="footer page__footer">
   <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
 </footer>
-<section class="popup page__popup">
+<article class="popup page__popup">
   <div class="popup__container">
-    <div class="popup__close"></div>
+    <button class="popup__close"></button>
+    <h2 class="popup__title">Редактировать профиль</h2>
     <form class="popup__form">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <input aria-label="Изменить имя" class="popup__fullname" type="text" value="">
-      <input aria-label="Изменить профессию" class="popup__position" type="text" value="">
+      <input aria-label="Изменить имя" class="popup__input popup__input_type_text-fullname" type="text" value="">
+      <input aria-label="Изменить профессию" class="popup__input popup__input_type_text-position" type="text" value="">
       <button class="popup__btn-save-profile" type="submit">Сохранить</button>
     </form>
   </div>
-</section>
-<script src="./pages/index/index.js"></script>
+</article>
+<script src="scripts/index.js"></script>
 </body>
 
 </html>

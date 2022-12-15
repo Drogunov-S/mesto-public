@@ -14,11 +14,12 @@
 
 @media screen and (min-width: 933px) {
   .profile__add-btm {
-    margin-top: 34.5px;
-    max-width: 146.5px;
-    padding-bottom: 0;
-    aspect-ratio: 3 / 0.95;
     background-size: 22px;
+    width: 146px;
+    height: 46px;
+    padding-bottom: 0;
     margin-left: auto;
+    margin-top: 35px;
+    margin-right: 2px;
   }
 }

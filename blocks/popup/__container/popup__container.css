@@ -5,8 +5,8 @@
   border-radius: 10px;
   padding: 25px 22px;
   margin-left: auto;
-  box-sizing: border-box;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 933px) {

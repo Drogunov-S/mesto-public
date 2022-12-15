@@ -1,13 +1,13 @@
 .profile__edit-btn {
   border: 0;
-  background-size: 7.5px;
+  background-size: 8px;
   background: transparent url('../../../images/edit-pen.svg') no-repeat center;
   outline: 1px solid white;
   padding: 0 0 16px 16px;
   cursor: pointer;
   position: absolute;
   right: 20px;
-  top: 10.5px;
+  top: 10px;
 }
 
 .profile__edit-btn:hover {

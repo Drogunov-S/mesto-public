@@ -1,10 +1,9 @@
 .popup__input_type_text-position {
-  margin-bottom: 43px;
+  margin-bottom: 46px;
 }
 
 @media screen and (min-width: 933px) {
   .popup__input_type_text-position {
-    margin-bottom: 46px;
-
+    margin-bottom: 48px;
   }
 }

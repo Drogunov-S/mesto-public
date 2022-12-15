@@ -3,11 +3,10 @@
   background-size: 22px 19px;
   aspect-ratio: 1 / 1;
   border: 0;
-  padding-bottom: 19px;
-  padding-right: 22px;
   margin-right: 5px;
   margin-left: auto;
   cursor: pointer;
+  padding: 0 22px 19px 0;
 }
 
 .card__like:hover {

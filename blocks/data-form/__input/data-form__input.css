@@ -1,4 +1,4 @@
-.popup__input {
+.data-form__input {
   width: 100%;
   font-size: 14px;
   line-height: 17px;
@@ -8,4 +8,15 @@
   border-bottom-width: 1px;
   border-color: rgba(0, 0, 0, .2);
   padding: 0 0 9px;
+  margin-bottom: 44px;
+}
+
+.data-form__input:first-of-type {
+  margin-bottom: 31px;
+}
+
+@media screen and (min-width: 933px) {
+  .data-form__input {
+    margin-bottom: 47px;
+  }
 }

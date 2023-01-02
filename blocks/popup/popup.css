@@ -1,4 +1,20 @@
 .popup {
   width: 100%;
-  display: none;
+  height: 100%;
+  /*display: none;*/
+  visibility: hidden;
+  transition: all .5s linear;
+  opacity: 0;
+  display: flex;
+  align-items: center;
 }
+/*
+
+@keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}*/

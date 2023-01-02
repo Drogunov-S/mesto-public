@@ -1,0 +1,15 @@
+.card__btn_type_trash {
+  background: transparent url('../../../../images/trash.svg') no-repeat center;
+  background-size: 18px 19px;
+  aspect-ratio: 1 / 1;
+  border: 0;
+  cursor: pointer;
+  padding: 0 18px 19px 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card__btn_type_trash:hover {
+  opacity: .5;
+}

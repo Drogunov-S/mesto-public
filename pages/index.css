@@ -28,6 +28,7 @@
 /* card */
 @import url('../blocks/card/card.css');
 @import url('../blocks/card/__image/card__image.css');
+@import url('../blocks/card/__btn/_type/card__btn_type_trash.css');
 @import url('../blocks/card/__info/card__info.css');
 @import url('../blocks/card/__caption/card__caption.css');
 @import url('../blocks/card/__like/card__like.css');
@@ -39,11 +40,19 @@
 
 /* popup */
 @import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/_blackout/popup_blackout_highly.css');
+@import url('../blocks/popup/_blackout/popup_blackout_medium.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/popup/__container/popup__container.css');
-@import url('../blocks/popup/__title/popup__title.css');
-@import url('../blocks/popup/__input/popup__input.css');
-@import url('../blocks/popup/__input/_type/popup__input_type_text-fullname.css');
-@import url('../blocks/popup/__input/_type/popup__input_type_text-position.css');
-@import url('../blocks/popup/__btn-save-profile/popup__btn-save-profile.css');
+
+/* data-form */
+@import url('../blocks/data-form/data-form.css');
+@import url('../blocks/data-form/__title/data-form__title.css');
+@import url('../blocks/data-form/__input/data-form__input.css');
+@import url('../blocks/data-form/__btn/_type/data-form__btn_type_save.css');
+
+/* preview */
+@import url('../blocks/preview/preview.css');
+@import url('../blocks/preview/__image/preview__image.css');
+@import url('../blocks/preview/__caption/preview__caption.css');

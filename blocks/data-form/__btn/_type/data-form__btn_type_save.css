@@ -1,4 +1,4 @@
-.popup__btn-save-profile {
+.data-form__btn_type_save {
   color: #FFFFFF;
   background-color: black;
   width: 100%;
@@ -10,12 +10,12 @@
   padding: 14.5px 0;
 }
 
-.popup__btn-save-profile:hover {
+.data-form__btn_type_save:hover {
   opacity: .8;
 }
 
 @media screen and (min-width: 933px) {
-  .popup__btn-save-profile {
+  .data-form__btn_type_save {
     font-size: 18px;
     line-height: 22px;
     padding-top: 14px;

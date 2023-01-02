@@ -24,55 +24,7 @@
 </section>
 
 <main class="content">
-  <section class="cards content__cards" aria-label="Карточки мест">
-    <article class="card">
-      <img src="./images/carachaevsk.jpg" alt="Фото монастыря. Карачаевск" class="card__image">
-      <div class="card__info">
-        <h2 class="card__caption">Карачаевск</h2>
-        <button class="card__like" type="button"></button>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
-      <div class="card__info">
-        <h2 class="card__caption">Гора Эльбрус</h2>
-        <button class="card__like" type="button"></button>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="./images/dombai.jpg" alt="Лес Домбай" class="card__image">
-      <div class="card__info">
-        <h2 class="card__caption">Домбай</h2>
-        <button class="card__like" type="button"></button>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="./images/gora-elbrus.jpg" alt="Фотография горы Эльбрус" class="card__image">
-      <div class="card__info">
-        <h2 class="card__caption">Гора Эльбрус</h2>
-        <button class="card__like" type="button"></button>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="./images/dombai.jpg" alt="Фотография Домбай" class="card__image">
-      <div class="card__info">
-        <h2 class="card__caption">Домбай</h2>
-        <button class="card__like" type="button"></button>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="./images/carachaevsk.jpg" alt="Карачаевск" class="card__image">
-      <div class="card__info">
-        <h2 class="card__caption">Карачаево-Черкесия</h2>
-        <button class="card__like" type="button"></button>
-      </div>
-    </article>
-  </section>
+  <section class="cards content__cards" aria-label="Карточки мест"></section>
 </main>
 
 <footer class="footer page__footer">
@@ -81,14 +33,35 @@
 <div class="popup page__popup">
   <div class="popup__container">
     <button class="popup__close" type="button"></button>
-    <h2 class="popup__title">Редактировать профиль</h2>
-    <form class="popup__form" name="profileForm">
-      <input aria-label="Изменить имя" class="popup__input popup__input_type_text-fullname" type="text" name="fullname" value="">
-      <input aria-label="Изменить профессию" class="popup__input popup__input_type_text-position" type="text" name="position" value="">
-      <button class="popup__btn-save-profile" type="submit">Сохранить</button>
-    </form>
   </div>
 </div>
+<template id="card-template">
+  <article class="card">
+    <img src="" alt="" class="card__image">
+    <button class="card__btn_type_trash" type="button"></button>
+    <div class="card__info">
+      <h2 class="card__caption"></h2>
+      <button class="card__like" type="button"></button>
+    </div>
+  </article>
+</template>
+<template id="preview-template">
+  <figure class="preview">
+    <img class="preview__image" src="" alt="">
+    <figcaption class="preview__caption"></figcaption>
+  </figure>
+</template>
+
+<template id="data-form">
+  <div class="data-form popup__item">
+    <h2 class="data-form__title"></h2>
+    <form class="data-form__form" name="">
+      <input class="data-form__input">
+      <input class="data-form__input">
+      <button class="data-form__btn_type_save" type="submit"></button>
+    </form>
+  </div>
+</template>
 <script src="scripts/index.js"></script>
 </body>
 

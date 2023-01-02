@@ -5,6 +5,7 @@
   background-color: #FFFFFF;
   padding-bottom: 25px;
   line-height: 0;
+  position: relative;
 }
 
 .card:nth-child(3) {

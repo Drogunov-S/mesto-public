@@ -1,20 +1,10 @@
 .popup {
   width: 100%;
   height: 100%;
-  /*display: none;*/
+  background: rgba(0, 0, 0, 0.5);
   visibility: hidden;
   transition: all .5s linear;
   opacity: 0;
   display: flex;
   align-items: center;
 }
-/*
-
-@keyframes toggle {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}*/

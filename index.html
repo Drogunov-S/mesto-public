@@ -30,37 +30,55 @@
 <footer class="footer page__footer">
   <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
 </footer>
-<div class="popup page__popup">
+<div class="popup-edit-profile popup page__popup">
   <div class="popup__container">
     <button class="popup__close" type="button"></button>
+    <div class="data-form">
+      <h2 class="data-form__title">Редактировать профиль</h2>
+      <form class="data-form__form" name="profileForm">
+        <input class="data-form__input data-form__input_type_text-fullname"
+               value="" aria-label="Изменить имя" name="fullName" type="text" placeholder="ФИО">
+        <input class="data-form__input data-form__input_type_text-position"
+               value="" aria-label="Изменить профессию" name="position" type="text" placeholder="Профессия">
+        <button class="data-form__btn_type_save" type="submit">Сохранить</button>
+      </form>
+    </div>
   </div>
 </div>
+<div class="popup-add-post popup page__popup">
+  <div class="popup__container">
+    <button class="popup__close" type="button"></button>
+    <div class="data-form popup__item">
+      <h2 class="data-form__title">Новое место</h2>
+      <form class="data-form__form" name="formNewPost">
+        <input class="data-form__input data-form__input_type_post-title"
+               aria-label="Название места" name="newPostTitle" type="text" placeholder="Название">
+        <input class="data-form__input data-form__input_type_url"
+               aria-label="Ссылка на картинку" name="newPostUrl" type="url" placeholder="Ссылка на картинку">
+        <button class="data-form__btn_type_save" type="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="popup-image popup page__popup popup_blackout_highly">
+  <div class="popup__container">
+    <button class="popup__close" type="button"></button>
+    <figure class="preview">
+      <img class="preview__image" src="#" alt="">
+      <figcaption class="preview__caption"></figcaption>
+    </figure>
+  </div>
+</div>
+<div></div>
 <template id="card-template">
   <article class="card">
-    <img class="card__image">
+    <img class="card__image" src="#" alt="">
     <button class="card__btn_type_trash" type="button"></button>
     <div class="card__info">
       <h2 class="card__caption"></h2>
       <button class="card__like" type="button"></button>
     </div>
   </article>
-</template>
-<template id="preview-template">
-  <figure class="preview">
-    <img class="preview__image">
-    <figcaption class="preview__caption"></figcaption>
-  </figure>
-</template>
-
-<template id="data-form">
-  <div class="data-form popup__item">
-    <h2 class="data-form__title"></h2>
-    <form class="data-form__form" name="">
-      <input class="data-form__input">
-      <input class="data-form__input">
-      <button class="data-form__btn_type_save" type="submit"></button>
-    </form>
-  </div>
 </template>
 <script src="scripts/index.js"></script>
 </body>

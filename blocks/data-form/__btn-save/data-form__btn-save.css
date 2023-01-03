@@ -1,4 +1,4 @@
-.data-form__btn_type_save {
+.data-form__btn-save {
   color: #FFFFFF;
   background-color: black;
   width: 100%;
@@ -10,12 +10,12 @@
   padding: 14.5px 0;
 }
 
-.data-form__btn_type_save:hover {
+.data-form__btn-save:hover {
   opacity: .8;
 }
 
 @media screen and (min-width: 933px) {
-  .data-form__btn_type_save {
+  .data-form__btn-save {
     font-size: 18px;
     line-height: 22px;
     padding-top: 14px;

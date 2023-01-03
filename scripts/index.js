@@ -42,7 +42,7 @@ function findOpenPopup(evt) {
 //popup newPost
 function openPopupAddPost() {
   const addPost = document.querySelector('.popup-add-post');
-  addPost.querySelector('.data-form__btn_type_save').addEventListener(eventClick, addedPostOnSite);
+  addPost.querySelector('.data-form__btn-save').addEventListener(eventClick, addedPostOnSite);
   openPopup(addPost);
 }
 
@@ -63,7 +63,7 @@ function openPopupEditProfile() {
   const editProfile = document.querySelector('.popup-edit-profile');
   inputFullname.value = profileFullname.textContent;
   inputPosition.value = profilePosition.textContent;
-  editProfile.querySelector('.data-form__btn_type_save').addEventListener(eventClick, handleFormSubmit)
+  editProfile.querySelector('.data-form__btn-save').addEventListener(eventClick, handleFormSubmit)
   openPopup(editProfile);
 }
 

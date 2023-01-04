@@ -1,8 +1,11 @@
 .profile__info {
   position: relative;
-  width: 100%;
   text-align: center;
   white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 933px) {
@@ -10,6 +13,6 @@
     margin-top: 22px;
     margin-left: 30px;
     max-width: 335px;
-    text-align: left;
+    align-items: start;
   }
 }

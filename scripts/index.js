@@ -1,5 +1,6 @@
 const popupOpened = 'popup_opened';
 const eventClick = 'click';
+const eventSubmit = 'submit';
 const profileFullname = document.querySelector('.profile__full-name');
 const profilePosition = document.querySelector('.profile__position');
 const popupEditProfile = document.querySelector('.popup-edit-profile');
@@ -28,18 +29,23 @@ document.querySelectorAll('.popup')
       popup.querySelector('.popup__close')
           .addEventListener(eventClick, () => closePopup(popup));
     });
-popupEditProfile.querySelector('.data-form__btn-save')
-    .addEventListener(eventClick, showProfileData)
-
+popupEditProfile.querySelector('.data-form__form')
+    .addEventListener(eventSubmit, showProfileData)
 popupAddPost
-    .querySelector('.data-form__btn-save')
-    .addEventListener(eventClick, formData);
+    .querySelector('.data-form__form')
+    .addEventListener(eventSubmit, insertPostOnSite);
+
+//Инициализация default card
+const nodes = initialCards.map(card => {
+  return renderCard(card);
+});
+insertCard(...nodes)
 
 /* ----------------------------- popups -----------------------------*/
 
 //Открытие попап
 function openPopup(popup) {
-  return popup.classList.add(popupOpened);
+  popup.classList.add(popupOpened);
 }
 
 //Закрытие попап
@@ -50,27 +56,27 @@ function closePopup(popup) {
 //Очистка inputs
 function clearingInputs(popup) {
   popup.querySelectorAll('.data-form__input')
-      .forEach(input => input.value = '');
+      .reset();
+}
+
+//Добавление данных в input popup profile
+function insertDataProfile() {
+  inputFullname.value = profileFullname.textContent;
+  inputPosition.value = profilePosition.textContent;
+  openPopup(popupEditProfile);
 }
 
 //Добавление поста на сайт
-function formData(evt) {
+function insertPostOnSite(evt) {
   evt.preventDefault();
   const card = {
     name: inputPostTitle.value,
     link: inputPostImageUrl.value
   }
   const renderedCards = renderCard(card);
-  insertCard(...renderedCards);
+  insertCard(renderedCards);
   clearingInputs(popupAddPost);
-  return closePopup(popupAddPost);
-}
-
-//Добавление данных в input popup profile
-function insertDataProfile(popupEditProfile) {
-  inputFullname.value = profileFullname.textContent;
-  inputPosition.value = profilePosition.textContent;
-  return openPopup(popupEditProfile);
+  closePopup(popupAddPost);
 }
 
 //Изменение данных в profile на сайте данными из формы
@@ -78,8 +84,7 @@ function showProfileData(evt) {
   evt.preventDefault();
   profileFullname.textContent = inputFullname.value;
   profilePosition.textContent = inputPosition.value;
-  clearingInputs(popupEditProfile);
-  return closePopup(popupEditProfile);
+  closePopup(popupEditProfile);
 }
 
 //popup preview image
@@ -92,19 +97,18 @@ function editPreviewPopup(urlImage, caption) {
 
 /* ----------------------------- card -----------------------------*/
 
-function renderCard(...cards) {
-  return cards.map(card => {
-    const cloneCard = emptyCardElement.cloneNode(true);
-    const image = cloneCard.querySelector('.card__image');
-    image.src = card.link;
-    image.alt = `Изображение ${card.name}`;
-    image.addEventListener(eventClick, () => editPreviewPopup(card.link, card.name));
-    const imageCaption = cloneCard.querySelector('.card__caption');
-    imageCaption.textContent = card.name;
-    cloneCard.querySelector('.card__like').addEventListener(eventClick, toggleLike);
-    cloneCard.querySelector('.card__btn_type_trash').addEventListener(eventClick, trashCard);
-    return cloneCard;
-  });
+function renderCard(card) {
+  const newCard = emptyCardElement.cloneNode(true);
+  const image = newCard.querySelector('.card__image');
+  image.src = card.link;
+  image.alt = `Изображение ${card.name}`;
+  image.addEventListener(eventClick, () => editPreviewPopup(card.link, card.name));
+  const imageCaption = newCard.querySelector('.card__caption');
+  imageCaption.textContent = card.name;
+  const like = newCard.querySelector('.card__like');
+  like.addEventListener(eventClick, toggleLike);
+  newCard.querySelector('.card__btn_type_trash').addEventListener(eventClick, trashCard);
+  return newCard;
 }
 
 function insertCard(...cards) {
@@ -112,8 +116,11 @@ function insertCard(...cards) {
       cardsContainer.prepend(card));
 }
 
-function toggleLike() {
-  this.classList.toggle('card__like_active');
+function toggleLike(evt) {
+  evt
+      .target
+      .classList
+      .toggle('card__like_active');
 }
 
 function trashCard(evt) {

@@ -54,8 +54,9 @@ function closePopup(popup) {
 }
 
 //Очистка inputs
-function clearingInputs(popup) {
-  popup.querySelectorAll('.data-form__input')
+function clearingInputs(evt) {
+  evt
+      .target
       .reset();
 }
 
@@ -75,7 +76,7 @@ function insertPostOnSite(evt) {
   }
   const renderedCards = renderCard(card);
   insertCard(renderedCards);
-  clearingInputs(popupAddPost);
+  clearingInputs(evt);
   closePopup(popupAddPost);
 }
 

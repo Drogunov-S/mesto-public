@@ -11,7 +11,7 @@
  * */
 const showInputError = (formElement, inputField, validationMessage, property) => {
   /** Select current <span> error block for id*/
-  const errorField = formElement.querySelector(`.input__error_type_${inputField.id}`);
+  const errorField = formElement.querySelector(`.data-form__input-error_type_${inputField.id}`);
   /** Enable CSS for current <input>*/
   inputField.classList.add(property.inputErrorClass);
   /** Show error text*/

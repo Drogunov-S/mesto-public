@@ -83,6 +83,12 @@ const setEventListeners = (formElement, properties) => {
   const inputList = Array.from(formElement.querySelectorAll(properties.inputSelector));
   const buttonSubmit = formElement.querySelector(properties.submitButtonSelector);
   toggleButtonState(inputList, buttonSubmit, properties);
+  /** Listener for deactivate submit button form after send form*/
+  formElement.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButtonState(inputList, buttonSubmit, properties);
+    }, 0);
+  });
   inputList.forEach(inputField => {
     inputField.addEventListener("input", () => {
       /** Realtime check validation input*/

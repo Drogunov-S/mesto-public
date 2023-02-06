@@ -24,41 +24,39 @@ document
 document
     .querySelector('.profile__add-btm')
     .addEventListener(eventClick, () => openPopup(popupAddPost));
-
-document.querySelectorAll('.popup')
-    .forEach(popup => {
-      popup.querySelector('.popup__container')
-          .addEventListener(eventClick, (evt) => evt.stopPropagation());
-      popup.addEventListener(eventClick, () => {
-        closePopup(popup);
-      });
-      document.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Escape') {
-          closePopup(popup);
-        }
-      });
-      popup.querySelector('.popup__close')
-          .addEventListener(eventClick, () => closePopup(popup));
-    });
 popupEditProfile.querySelector('.data-form__form')
-    .addEventListener(eventSubmit, showProfileData)
+    .addEventListener(eventSubmit, handleProfileFormSubmit)
 popupAddPost
     .querySelector('.data-form__form')
     .addEventListener(eventSubmit, insertPostOnSite);
 
 //Инициализация default card
-const nodes = initialCards.map(card => {
-  return renderCard(card);
-});
+const nodes = initialCards.map(renderCard);
 insertCard(...nodes)
 
 /* ----------------------------- popups -----------------------------*/
+
+/**
+ * Set listeners for opened popup
+ * @param popup - Object .popup_opened
+ * */
+const setPopupListeners = (popup)  => {
+  popup.querySelector('.popup__container')
+      .addEventListener(eventClick, (evt) => evt.stopPropagation());
+  popup.addEventListener(eventClick, () => {
+    closePopup(popup);
+  });
+  popup.querySelector('.popup__close')
+      .addEventListener(eventClick, () => closePopup(popup));
+  document.addEventListener('keydown', closeByEscape);
+}
 
 /**
  * function opened popup
  * @param popup - object DOM popup
  * */
 function openPopup(popup) {
+  setPopupListeners(popup);
   popup.classList.add(popupOpened);
 }
 
@@ -68,13 +66,24 @@ function openPopup(popup) {
  * */
 function closePopup(popup) {
   popup.classList.remove(popupOpened);
+  document.removeEventListener('keydown', closeByEscape);
+}
+
+/**
+ * Close open popup press by Esc key
+ * @param {Event} evt
+ * */
+function closeByEscape(evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+    if (evt.key === 'Escape') {
+      closePopup(openedPopup);
+  }
 }
 
 /**
  * Clear inputs <form>
- *
  * */
-function clearingInputs(evt) {
+function clearInputs(evt) {
   evt
       .target
       .reset();
@@ -101,7 +110,7 @@ function insertPostOnSite(evt) {
   }
   const renderedCards = renderCard(card);
   insertCard(renderedCards);
-  clearingInputs(evt);
+  clearInputs(evt);
   closePopup(popupAddPost);
 }
 
@@ -109,7 +118,7 @@ function insertPostOnSite(evt) {
  * Update data in profile on site.
  * @param {Event} evt
  * */
-function showProfileData(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileFullname.textContent = inputFullname.value;
   profilePosition.textContent = inputPosition.value;
@@ -121,7 +130,7 @@ function showProfileData(evt) {
  * @param urlImage - reference on image
  * @param caption - text caption image
  * */
-function editPreviewPopup(urlImage, caption) {
+function showPreviewPopup(urlImage, caption) {
   image.src = urlImage;
   image.alt = caption;
   previewCaption.textContent = caption;
@@ -139,7 +148,7 @@ function renderCard(card) {
   const image = newCard.querySelector('.card__image');
   image.src = card.link;
   image.alt = `Изображение ${card.name}`;
-  image.addEventListener(eventClick, () => editPreviewPopup(card.link, card.name));
+  image.addEventListener(eventClick, () => showPreviewPopup(card.link, card.name));
   const imageCaption = newCard.querySelector('.card__caption');
   imageCaption.textContent = card.name;
   const like = newCard.querySelector('.card__like');

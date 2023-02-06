@@ -24,8 +24,19 @@ document
 document
     .querySelector('.profile__add-btm')
     .addEventListener(eventClick, () => openPopup(popupAddPost));
+
 document.querySelectorAll('.popup')
     .forEach(popup => {
+      popup.querySelector('.popup__container')
+          .addEventListener(eventClick, (evt) => evt.stopPropagation());
+      popup.addEventListener(eventClick, () => {
+        closePopup(popup);
+      });
+      document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+          closePopup(popup);
+        }
+      });
       popup.querySelector('.popup__close')
           .addEventListener(eventClick, () => closePopup(popup));
     });
@@ -43,31 +54,45 @@ insertCard(...nodes)
 
 /* ----------------------------- popups -----------------------------*/
 
-//Открытие попап
+/**
+ * function opened popup
+ * @param popup - object DOM popup
+ * */
 function openPopup(popup) {
   popup.classList.add(popupOpened);
 }
 
-//Закрытие попап
+/**
+ * Close popup
+ * @param popup - object DOM popup
+ * */
 function closePopup(popup) {
   popup.classList.remove(popupOpened);
 }
 
-//Очистка inputs
+/**
+ * Clear inputs <form>
+ *
+ * */
 function clearingInputs(evt) {
   evt
       .target
       .reset();
 }
 
-//Добавление данных в input popup profile
+/**
+ * Load data in <input>(s) line profile
+ * */
 function insertDataProfile() {
   inputFullname.value = profileFullname.textContent;
   inputPosition.value = profilePosition.textContent;
   openPopup(popupEditProfile);
 }
 
-//Добавление поста на сайт
+/**
+ * Added new post on site
+ * @param {Event} evt
+ * */
 function insertPostOnSite(evt) {
   evt.preventDefault();
   const card = {
@@ -80,7 +105,10 @@ function insertPostOnSite(evt) {
   closePopup(popupAddPost);
 }
 
-//Изменение данных в profile на сайте данными из формы
+/**
+ * Update data in profile on site.
+ * @param {Event} evt
+ * */
 function showProfileData(evt) {
   evt.preventDefault();
   profileFullname.textContent = inputFullname.value;
@@ -88,7 +116,11 @@ function showProfileData(evt) {
   closePopup(popupEditProfile);
 }
 
-//popup preview image
+/**
+ * Show image card in
+ * @param urlImage - reference on image
+ * @param caption - text caption image
+ * */
 function editPreviewPopup(urlImage, caption) {
   image.src = urlImage;
   image.alt = caption;
@@ -97,8 +129,12 @@ function editPreviewPopup(urlImage, caption) {
 }
 
 /* ----------------------------- card -----------------------------*/
-
+/**
+ * Creator new card from template
+ * @param card - object card with line {String} name and {url} link
+ * */
 function renderCard(card) {
+  /** Clone template from html*/
   const newCard = emptyCardElement.cloneNode(true);
   const image = newCard.querySelector('.card__image');
   image.src = card.link;
@@ -112,11 +148,19 @@ function renderCard(card) {
   return newCard;
 }
 
+/**
+ * Added card(s) in cardsContainer on site
+ * @param cards - array cards or single object card
+ * */
 function insertCard(...cards) {
   cards.forEach(card =>
       cardsContainer.prepend(card));
 }
 
+/**
+ * Enable \ disable like on site
+ * @param {Event} evt
+ * */
 function toggleLike(evt) {
   evt
       .target
@@ -124,9 +168,24 @@ function toggleLike(evt) {
       .toggle('card__like_active');
 }
 
+/**
+ * Trash card
+ * @param {Event} evt
+ * */
 function trashCard(evt) {
   evt
       .target
       .closest('.card')
       .remove();
 }
+
+/* ----------------------------- Enable validation -----------------------------*/
+
+enableValidation({
+  formSelector: '.data-form__form ',
+  inputSelector: '.data-form__input',
+  submitButtonSelector: '.data-form__btn-save',
+  inactiveButtonClass: 'data-form__btn_disabled',
+  inputErrorClass: 'data-form__input_error_active',
+  errorClass: 'data-form__input-error_visible'
+});

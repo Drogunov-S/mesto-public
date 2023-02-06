@@ -1,0 +1,14 @@
+.data-form__input-error {
+  display: block;
+  min-height: 35px;
+  box-sizing: border-box;
+  padding-top: 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+

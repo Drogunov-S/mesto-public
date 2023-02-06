@@ -1,0 +1,15 @@
+.data-form__btn_disabled {
+  color: rgba(0, 0, 0, 1);
+  border: 1px solid black;
+  background-color: transparent;
+  opacity: .2;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.data-form__btn-save:hover {
+  opacity: .2;
+}

@@ -32,7 +32,7 @@ const showInputError = (formElement, inputField, validationMessage, property) =>
  *  * */
 const hideInputError = (formElement, inputField, property) => {
   const errorField = formElement.querySelector(`.data-form__input-error_type_${inputField.id}`);
-  formElement.classList.remove(property.inputErrorClass);
+  inputField.classList.remove(property.inputErrorClass);
   errorField.classList.remove(property.errorClass);
   errorField.textContent = '';
 };

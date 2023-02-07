@@ -37,18 +37,18 @@ insertCard(...nodes)
 /* ----------------------------- popups -----------------------------*/
 
 /**
- * Set listeners for opened popup
- * @param popup - Object .popup_opened
+ * Set closing popup events listeners
+ * @param {MouseEvent} evt - event
  * */
-const setPopupListeners = (popup)  => {
-  popup.querySelector('.popup__container')
-      .addEventListener(eventClick, (evt) => evt.stopPropagation());
-  popup.addEventListener(eventClick, () => {
-    closePopup(popup);
-  });
-  popup.querySelector('.popup__close')
-      .addEventListener(eventClick, () => closePopup(popup));
-  document.addEventListener('keydown', closeByEscape);
+  const setPopupClosedListeners = (evt) => {
+  const targetClasses = Array.from(evt.target.classList);
+  const hasClose = targetClasses.some((currentClass) => {
+    return currentClass === popupOpened
+        || currentClass === 'popup__close';
+  })
+  if (hasClose) {
+    closePopup(evt.target.closest('.popup_opened'));
+  }
 }
 
 /**
@@ -56,7 +56,8 @@ const setPopupListeners = (popup)  => {
  * @param popup - object DOM popup
  * */
 function openPopup(popup) {
-  setPopupListeners(popup);
+  document.addEventListener('keydown', closeByEscape);
+  popup.addEventListener('mousedown' , setPopupClosedListeners);
   popup.classList.add(popupOpened);
 }
 
@@ -66,17 +67,18 @@ function openPopup(popup) {
  * */
 function closePopup(popup) {
   popup.classList.remove(popupOpened);
+  popup.removeEventListener('mousedown', setPopupClosedListeners);
   document.removeEventListener('keydown', closeByEscape);
 }
 
 /**
  * Close open popup press by Esc key
- * @param {Event} evt
+ * @param {KeyboardEvent} evt
  * */
 function closeByEscape(evt) {
-  const openedPopup = document.querySelector('.popup_opened');
-    if (evt.key === 'Escape') {
-      closePopup(openedPopup);
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
 }
 
@@ -84,9 +86,7 @@ function closeByEscape(evt) {
  * Clear inputs <form>
  * */
 function clearInputs(evt) {
-  evt
-      .target
-      .reset();
+  evt.target.reset();
 }
 
 /**
@@ -100,7 +100,7 @@ function insertDataProfile() {
 
 /**
  * Added new post on site
- * @param {Event} evt
+ * @param {SubmitEvent} evt
  * */
 function insertPostOnSite(evt) {
   evt.preventDefault();
@@ -116,7 +116,7 @@ function insertPostOnSite(evt) {
 
 /**
  * Update data in profile on site.
- * @param {Event} evt
+ * @param {SubmitEvent} evt
  * */
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -127,8 +127,8 @@ function handleProfileFormSubmit(evt) {
 
 /**
  * Show image card in
- * @param urlImage - reference on image
- * @param caption - text caption image
+ * @param {String} urlImage - reference on image
+ * @param {String} caption - text caption image
  * */
 function showPreviewPopup(urlImage, caption) {
   image.src = urlImage;
@@ -168,7 +168,7 @@ function insertCard(...cards) {
 
 /**
  * Enable \ disable like on site
- * @param {Event} evt
+ * @param {PointerEvent} evt
  * */
 function toggleLike(evt) {
   evt
@@ -179,7 +179,7 @@ function toggleLike(evt) {
 
 /**
  * Trash card
- * @param {Event} evt
+ * @param {PointerEvent} evt
  * */
 function trashCard(evt) {
   evt

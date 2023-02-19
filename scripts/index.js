@@ -169,6 +169,7 @@ function insertPostOnSite(evt) {
   evt.preventDefault();
 
   const renderedCards = new Card(
+      propertiesCard,
       inputPostTitle.value,
       inputPostImageUrl.value,
       '#card-template')

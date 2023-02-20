@@ -1,13 +1,15 @@
+/* ----------------------------- Imports -----------------------------*/
 import {initialCards} from "./cards.js";
 import {FormValidator} from "./validate.js";
 import {Card} from "./card.js";
+import {propertiesCard, propertiesValidator} from "./properties.js";
 
 /* ----------------------------- Constant -----------------------------*/
-
 const popupOpened = 'popup_opened';
 const btnClosePopup = 'popup__close';
 const eventClick = 'click';
 const eventSubmit = 'submit';
+const nodes = initialCards.map(cardInfo => renderCard(cardInfo.name, cardInfo.link));
 
 const profileFullname = document.querySelector('.profile__full-name');
 const profilePosition = document.querySelector('.profile__position');
@@ -22,53 +24,10 @@ const popupImage = document.querySelector('.popup-image');
 const image = popupImage.querySelector('.preview__image');
 const previewCaption = popupImage.querySelector('.preview__caption');
 
-/* ----------------------------- Default listeners -----------------------------*/
-
-document
-    .querySelector('.profile__edit-btn')
-    .addEventListener(eventClick, () => insertDataProfile(popupEditProfile));
-document
-    .querySelector('.profile__add-btm')
-    .addEventListener(eventClick, () => openPopup(popupAddPost));
-popupEditProfile.querySelector('.data-form__form')
-    .addEventListener(eventSubmit, handleProfileFormSubmit)
-popupAddPost
-    .querySelector('.data-form__form')
-    .addEventListener(eventSubmit, insertPostOnSite);
-
 /* ----------------------------- Enable validation -----------------------------*/
-
-const propertiesValidator = {
-  inputSelector: '.data-form__input',
-  submitButtonSelector: '.data-form__btn-save',
-  inactiveButtonClass: 'data-form__btn_disabled',
-  inputErrorClass: 'data-form__input_error_active',
-  errorClass: 'data-form__input-error_visible'
-}
 
 new FormValidator(propertiesValidator, document.profileForm).enableValidation();
 new FormValidator(propertiesValidator, document.formNewPost).enableValidation();
-
-/* ----------------------------- Инициализация default card -----------------------------*/
-
-const propertiesCard = {
-  cardSelector: '.card',
-  cardImageSelector: '.card__image',
-  cardLikeSelector: '.card__like',
-  cardCaptionSelector: '.card__caption',
-  btnTrashSelector: '.card__btn_type_trash',
-  showPreviewPopup: showPreviewPopup,
-  activeLikeClass: 'card__like_active',
-}
-
-const nodes = initialCards.map(cardInfo => {
-  return new Card(
-      propertiesCard
-      , cardInfo.name
-      , cardInfo.link
-      , '#card-template')
-      .renderCard()
-});
 
 /* ----------------------------- popups -----------------------------*/
 
@@ -102,6 +61,7 @@ function openPopup(popup) {
  * @param popup - object DOM popup
  * */
 function closePopup(popup) {
+  clearInputs(popup);
   popup.classList.remove(popupOpened);
   popup.removeEventListener('mousedown', setPopupClosedListeners);
   document.removeEventListener('keydown', closeByEscape);
@@ -121,8 +81,11 @@ function closeByEscape(evt) {
 /**
  * Clear inputs <form>
  * */
-function clearInputs(evt) {
-  evt.target.reset();
+function clearInputs(popup) {
+  const isForm = popup.querySelector(formSelector);
+  if (isForm) {
+    isForm.reset();
+  }
 }
 
 /* ----------------------------- Utils -----------------------------*/
@@ -143,7 +106,7 @@ insertCard(...nodes)
  * @param {String} urlImage - reference on image
  * @param {String} caption - text caption image
  * */
-function showPreviewPopup(urlImage, caption) {
+export function showPreviewPopup(urlImage, caption) {
   image.src = urlImage;
   image.alt = caption;
   previewCaption.textContent = caption;
@@ -168,15 +131,8 @@ function handleProfileFormSubmit(evt) {
 function insertPostOnSite(evt) {
   evt.preventDefault();
 
-  const renderedCards = new Card(
-      propertiesCard,
-      inputPostTitle.value,
-      inputPostImageUrl.value,
-      '#card-template')
-      .renderCard()
-
+  const renderedCards = renderCard(inputPostTitle.value, inputPostImageUrl.value,)
   insertCard(renderedCards);
-  clearInputs(evt);
   closePopup(popupAddPost);
 }
 
@@ -187,4 +143,30 @@ function insertDataProfile(popupEditProfile) {
   inputFullname.value = profileFullname.textContent;
   inputPosition.value = profilePosition.textContent;
   openPopup(popupEditProfile);
+}
+
+/* ----------------------------- Default listeners -----------------------------*/
+
+document
+    .querySelector('.profile__edit-btn')
+    .addEventListener(eventClick, () => insertDataProfile(popupEditProfile));
+document
+    .querySelector('.profile__add-btm')
+    .addEventListener(eventClick, () => openPopup(popupAddPost));
+const formSelector = ".data-form__form";
+popupEditProfile.querySelector(formSelector)
+    .addEventListener(eventSubmit, handleProfileFormSubmit)
+popupAddPost
+    .querySelector(formSelector)
+    .addEventListener(eventSubmit, insertPostOnSite);
+
+/* ----------------------------- Инициализация default card -----------------------------*/
+
+function renderCard(name, link) {
+  return new Card(
+      propertiesCard
+      , name
+      , link
+      , '#card-template')
+      .renderCard()
 }

@@ -1,11 +1,13 @@
 .card {
-  max-width: 282px;
+  width: 282px;
   border-radius: 10px;
   margin: 0;
   background-color: #FFFFFF;
   padding-bottom: 25px;
   line-height: 0;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:nth-child(3) {

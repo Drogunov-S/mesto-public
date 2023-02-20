@@ -30,9 +30,9 @@ export class Card {
 
   _setEventListeners() {
     this._imageElement.addEventListener(this._eventClick, () => this._showPreviewPopup(this._link, this._name));
-    this._likeElement.addEventListener(this._eventClick, (evt) => this._toggleLike(evt, this._activeLikeClass))
+    this._likeElement.addEventListener(this._eventClick, (evt) => this._toggleLike(this._activeLikeClass))
     this._newCard.querySelector(this._btnTrashSelector)
-        .addEventListener(this._eventClick, (evt) => this._trashCard(evt, this._cardSelector));
+        .addEventListener(this._eventClick, (evt) => this._trashCard(this._cardSelector));
   }
 
 
@@ -48,9 +48,8 @@ export class Card {
    * @param {PointerEvent} evt
    * @param activeLikeClass
    * */
-  _toggleLike(evt, activeLikeClass) {
-    evt
-        .target
+  _toggleLike(activeLikeClass) {
+    this,this._likeElement
         .classList
         .toggle(activeLikeClass);
   }
@@ -60,11 +59,8 @@ export class Card {
    * @param {Event} evt
    * @param cardSelector
    * */
-  _trashCard(evt, cardSelector) {
-    const target = evt
-        .target;
-
-    target
+  _trashCard(cardSelector) {
+    this._newCard
         .closest(cardSelector)
         .remove();
   }

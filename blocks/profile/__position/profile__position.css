@@ -1,5 +1,6 @@
 .profile__position {
   font-size: 14px;
+  max-width: 235px;
   line-height: 17px;
   margin-top: 0;
   margin-bottom: 35px;
@@ -9,6 +10,7 @@
 
 @media screen and (min-width: 933px) {
   .profile__position {
+    max-width: 302px;
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 0;

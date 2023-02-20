@@ -6,3 +6,16 @@
   aspect-ratio: 1 / 1;
   cursor: pointer;
 }
+
+/*.card__image[alt] {
+  color: aqua;
+  padding-top: 30px;
+}*/
+
+/*.card__image::before {
+  color: red;
+  padding-top: 30px;
+  !*width: 200px;*!
+  display: block;
+  width: 100%;
+}*/

@@ -1,12 +1,12 @@
 export class FormValidator {
   constructor(properties, formElement) {
     this._formElement = formElement
-    // this._formSelector = properties.formSelector;
-    this._inputSelector = properties.inputSelector;
-    this._submitButtonSelector = properties.submitButtonSelector;
     this._inactiveButtonClass = properties.inactiveButtonClass;
     this._inputErrorClass = properties.inputErrorClass;
     this._errorClass = properties.errorClass;
+    this._patternErrorSelector = properties.patternErrorSelector;
+    this._inputList = Array.from(formElement.querySelectorAll(properties.inputSelector));
+    this._buttonSubmit = formElement.querySelector(properties.submitButtonSelector);
   }
 
 
@@ -22,7 +22,7 @@ export class FormValidator {
    * */
   _showInputError(formElement, inputField, validationMessage) {
     /** Select current <span> error block for id*/
-    const errorField = formElement.querySelector(`.data-form__input-error_type_${inputField.id}`);
+    const errorField = formElement.querySelector(`${this._patternErrorSelector + inputField.id}`);
     /** Enable CSS for current <input>*/
     inputField.classList.add(this._inputErrorClass);
     /** Show error text*/
@@ -33,7 +33,7 @@ export class FormValidator {
 
   /**
    * Hide text error in <span> and activate style visualise CSS error for <input>
-   * *   @param formElement - <form>
+   *  *   @param formElement
    *  *   @param inputField - current field <input>
    *  *   {
    *  *     @const inputErrorClass,
@@ -41,7 +41,7 @@ export class FormValidator {
    *  *   }
    *  * */
   _hideInputError(formElement, inputField) {
-    const errorField = formElement.querySelector(`.data-form__input-error_type_${inputField.id}`);
+    const errorField = formElement.querySelector(`${this._patternErrorSelector + inputField.id}`);
     inputField.classList.remove(this._inputErrorClass);
     errorField.classList.remove(this._errorClass);
     errorField.textContent = '';
@@ -60,15 +60,15 @@ export class FormValidator {
     }
   };
 
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
 
   /**
    * Css class switcher enable\disable for the button submit
-   * @param inputList - list <input(s)>
+   * @param inputList
    * @param buttonSubmit - object with submit button
    * */
   _toggleButtonState(inputList, buttonSubmit) {
@@ -85,23 +85,20 @@ export class FormValidator {
 
   /**
    * Set eventListener for each <input> line
-   *  @param formElement - <form>
    * */
-  _setEventListeners(formElement) {
-    const inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
-    const buttonSubmit = formElement.querySelector(this._submitButtonSelector);
-    this._toggleButtonState(inputList, buttonSubmit);
+  _setEventListeners() {
+    this._toggleButtonState(this._inputList, this._buttonSubmit);
     /** Listener for deactivate submit button form after send form*/
-    formElement.addEventListener('reset', () => {
+    this._formElement.addEventListener('reset', () => {
       setTimeout(() => {
-        this._toggleButtonState(inputList, buttonSubmit);
+        this._toggleButtonState(this._inputList, this._buttonSubmit);
       }, 0);
     });
-    inputList.forEach(inputField => {
+    this._inputList.forEach(inputField => {
       inputField.addEventListener("input", () => {
         /** Realtime check validation input*/
-        this._checkInputValidity(formElement, inputField);
-        this._toggleButtonState(inputList, buttonSubmit);
+        this._checkInputValidity(this._formElement, inputField);
+        this._toggleButtonState(this._inputList, this._buttonSubmit);
       })
     })
   }
@@ -113,7 +110,6 @@ export class FormValidator {
     this._formElement.addEventListener("submit", (evt) => evt.preventDefault());
     this._setEventListeners(this._formElement);
   }
-
 }
 
 

@@ -68,18 +68,16 @@ export class FormValidator {
 
   /**
    * Css class switcher enable\disable for the button submit
-   * @param inputList
-   * @param buttonSubmit - object with submit button
    * */
-  _toggleButtonState(inputList, buttonSubmit) {
-    if (this._hasInvalidInput(inputList)) {
+  _toggleButtonState() {
+    if (this._hasInvalidInput(this._inputList)) {
       /** Disable button*/
-      buttonSubmit.classList.add(this._inactiveButtonClass);
-      buttonSubmit.disabled = true;
+      this._buttonSubmit.classList.add(this._inactiveButtonClass);
+      this._buttonSubmit.disabled = true;
     } else {
       /** Enable button*/
-      buttonSubmit.classList.remove(this._inactiveButtonClass);
-      buttonSubmit.disabled = false;
+      this._buttonSubmit.classList.remove(this._inactiveButtonClass);
+      this._buttonSubmit.disabled = false;
     }
   };
 
@@ -87,18 +85,18 @@ export class FormValidator {
    * Set eventListener for each <input> line
    * */
   _setEventListeners() {
-    this._toggleButtonState(this._inputList, this._buttonSubmit);
+    this._toggleButtonState();
     /** Listener for deactivate submit button form after send form*/
     this._formElement.addEventListener('reset', () => {
       setTimeout(() => {
-        this._toggleButtonState(this._inputList, this._buttonSubmit);
+        this._toggleButtonState();
       }, 0);
     });
     this._inputList.forEach(inputField => {
       inputField.addEventListener("input", () => {
         /** Realtime check validation input*/
         this._checkInputValidity(this._formElement, inputField);
-        this._toggleButtonState(this._inputList, this._buttonSubmit);
+        this._toggleButtonState();
       })
     })
   }

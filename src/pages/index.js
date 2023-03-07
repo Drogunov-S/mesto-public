@@ -1,6 +1,5 @@
 /* ----------------------------- Imports -----------------------------*/
 import css from '../pages/index.css';
-import {initialCards} from './cards.js';
 import {Section} from '../components/Section.js';
 import {UserInfo} from '../components/UserInfo.js';
 import {FormValidator} from '../components/Validate.js';
@@ -18,7 +17,8 @@ import {
   clickEvent,
   profileFullnameSelector,
   profilePositionSelector,
-  profileAddBtnSelector
+  profileAddBtnSelector,
+  initialCards
 } from '../utils/constants';
 
 /* ----------------------------- UserInfo -----------------------------*/

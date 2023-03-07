@@ -14,11 +14,9 @@ export class Popup {
     this._removeEventsListener();
   }
 
-  _handleEscClose(evt) {
+  _handleEscClose = (evt) => {
     if (evt.key === 'Escape') {
-      document.querySelector('.popup_opened')
-          .classList
-          .remove('popup_opened');
+      this.close();
     }
   }
 

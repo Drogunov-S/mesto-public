@@ -1,7 +1,7 @@
 export class Card {
-  constructor(properties, name, link, idTemplate) {
-    this._name = name;
-    this._link = link;
+  constructor(properties, {title, url}, idTemplate, handleCardClick) {
+    this._name = title;
+    this._link = url;
     this._idTemplate = idTemplate;
     this._eventClick = 'click';
     this._cardSelector = properties.cardSelector;
@@ -10,7 +10,7 @@ export class Card {
     this._cardCaptionSelector = properties.cardCaptionSelector;
     this._btnTrashSelector = properties.btnTrashSelector;
     this._activeLikeClass = properties.activeLikeClass;
-    this._showPreviewPopup = properties.showPreviewPopup;
+    this._handleCardClick = handleCardClick;
   }
 
   /**
@@ -29,12 +29,11 @@ export class Card {
   }
 
   _setEventListeners() {
-    this._imageElement.addEventListener(this._eventClick, () => this._showPreviewPopup(this._link, this._name));
+    this._imageElement.addEventListener(this._eventClick, () => this._handleCardClick(this._link, this._name));
     this._likeElement.addEventListener(this._eventClick, () => this._toggleLike(this._activeLikeClass))
     this._newCard.querySelector(this._btnTrashSelector)
         .addEventListener(this._eventClick, () => this._trashCard(this._cardSelector));
   }
-
 
   _getTemplate() {
     return document.querySelector(this._idTemplate)

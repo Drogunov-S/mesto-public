@@ -9,7 +9,6 @@ export class FormValidator {
     this._buttonSubmit = formElement.querySelector(properties.submitButtonSelector);
   }
 
-
   /**
    * Shows text error in <span> and activate style visualise CSS error for <input>
    *   @param formElement - <form>

@@ -10,3 +10,10 @@ notes.md
 /.idea/codeStyles/codeStyleConfig.xml
 .idea/*
 .idea
+/node_modules/
+/package.json
+/package-lock.json
+/dist/
+/babel.config.js
+/postcss.config.js
+/webpack.config.js

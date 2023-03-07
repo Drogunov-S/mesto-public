@@ -5,16 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 
 <body class="page">
 <header class="header page__header">
-  <img src="images/logo.svg" alt="Логотип" class="header__logo">
+  <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo">
 </header>
 <section class="profile page__profile" aria-label="Профиль">
-  <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar-image">
+  <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар" class="profile__avatar-image">
   <div class="profile__info">
     <div class="profile__edit">
       <h1 class="profile__full-name">Жак-Ив Кусто</h1>
@@ -40,7 +39,7 @@
       <form class="data-form__form" name="profileForm" novalidate>
         <input class="data-form__input data-form__input_type_text-fullname"
                id="fullname"
-               name="fullName"
+               name="fullname"
                type="text"
                aria-label="Изменить имя"
                placeholder="Имя"
@@ -73,8 +72,8 @@
       <form class="data-form__form" name="formNewPost" novalidate>
         <label class="data-form__field">
           <input class="data-form__input data-form__input_type_post-title"
-                 id="new-post-title"
-                 name="newPostTitle"
+                 id="title"
+                 name="title"
                  type="text"
                  aria-label="Название места"
                  placeholder="Название"
@@ -82,19 +81,18 @@
                  maxlength="30"
                  required
           >
-          <span class="data-form__input-error data-form__input-error_type_new-post-title">Вы пропустили это поле.</span>
+          <span class="data-form__input-error data-form__input-error_type_title"></span>
         </label>
         <label class="data-form__field">
           <input class="data-form__input data-form__input_type_url"
-                 id="new-post-url"
-                 name="newPostUrl"
+                 id="url"
+                 name="url"
                  type="url"
                  aria-label="Ссылка на картинку"
                  placeholder="Ссылка на картинку"
                  required
           >
-<!--          <span class="data-form__input-error input__error_type_new-post-url">Введите адрес сайта.</span>-->
-          <span class="data-form__input-error data-form__input-error_type_new-post-url">Введите адрес сайта.</span>
+          <span class="data-form__input-error data-form__input-error_type_url"></span>
         </label>
         <button class="data-form__btn-save" type="submit">Создать</button>
       </form>
@@ -121,9 +119,6 @@
     </div>
   </article>
 </template>
-<!--<script type="module" src="scripts/cards.js"></script>-->
-<!--<script type="module" src="scripts/validate.js"></script>-->
-<script type="module" src="scripts/index.js"></script>
 </body>
 
 </html>

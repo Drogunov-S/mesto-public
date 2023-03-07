@@ -1,6 +1,4 @@
-import {showPreviewPopup} from "./index.js";
-
-export const propertiesValidator = {
+const propertiesValidator = {
   inputSelector: '.data-form__input',
   submitButtonSelector: '.data-form__btn-save',
   inactiveButtonClass: 'data-form__btn_disabled',
@@ -9,12 +7,20 @@ export const propertiesValidator = {
   patternErrorSelector: '.data-form__input-error_type_',
 }
 
-export const propertiesCard = {
+const propertiesCard = {
   cardSelector: '.card',
   cardImageSelector: '.card__image',
   cardLikeSelector: '.card__like',
   cardCaptionSelector: '.card__caption',
   btnTrashSelector: '.card__btn_type_trash',
-  showPreviewPopup: showPreviewPopup,
   activeLikeClass: 'card__like_active',
 }
+
+const propertiesPopupWithImage = {
+  popupImageSelector: '.popup-image',
+  popupCardImage: '.preview__image',
+  popupCardCaption: '.preview__caption'
+}
+
+
+export {propertiesCard, propertiesValidator, propertiesPopupWithImage}

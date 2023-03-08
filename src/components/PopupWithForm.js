@@ -12,7 +12,7 @@ export class PopupWithForm extends Popup {
     this._form = this._popup.querySelector('form');
   }
 
-  _getInputValues() {
+  getInputValues() {
     return this._inputs.reduce((data, input) => {
       data[input[fieldName]] = input.value;
       return data;

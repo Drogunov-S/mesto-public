@@ -2,7 +2,7 @@
 import css from '../pages/index.css';
 import {Section} from '../components/Section.js';
 import {UserInfo} from '../components/UserInfo.js';
-import {FormValidator} from '../components/Validate.js';
+import {FormValidator} from '../components/FormValidator.js';
 import {Card} from '../components/Card.js';
 import {PopupWithImage} from '../components/PopupWithImage.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
@@ -32,14 +32,14 @@ const popupImage = new PopupWithImage(popupImageSelector, propertiesPopupWithIma
 
 const popupAddPost = new PopupWithForm(popupAddPostSelector, (evt) => {
   evt.preventDefault();
-  sectionCards.addNewPost(popupAddPost._getInputValues());
+  sectionCards.addNewPost(popupAddPost.getInputValues());
   popupAddPost.close();
 });
 
 const popupEditProfile = new PopupWithForm(popupEditProfileSelector,
     (evt) => {
       evt.preventDefault();
-      userInfo.setUserInfo(popupEditProfile._getInputValues());
+      userInfo.setUserInfo(popupEditProfile.getInputValues());
       popupEditProfile.close();
     });
 

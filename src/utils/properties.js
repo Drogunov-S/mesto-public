@@ -14,7 +14,7 @@ const propertiesCard = {
   cardCaptionSelector: '.card__caption',
   btnTrashSelector: '.card__btn_type_trash',
   activeLikeClass: 'card__like_active',
-  counterLikesSelector: '.card__counter',
+  counterLikesSelector: '.card__like-counter',
   btnTrashActiveClass: 'card__btn_type_trash_active'
 }
 

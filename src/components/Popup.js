@@ -9,14 +9,14 @@ export class Popup {
     this._setEventsListener();
   }
 
-  _close() {
+  close() {
     this._popup.classList.remove("popup_opened");
     this._removeEventsListener();
   }
 
   _handleEscClose = (evt) => {
     if (evt.key === 'Escape') {
-      this._close();
+      this.close();
     }
   }
 
@@ -27,7 +27,7 @@ export class Popup {
           || currentClass === 'popup__close';
     })
     if (hasClose) {
-      this._close();
+      this.close();
     }
   }
 

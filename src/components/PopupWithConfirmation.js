@@ -9,7 +9,7 @@ export class PopupWithConfirmation extends Popup {
   open(callBackTrashCard) {
     super.open();
     this._callBackTrashCard = callBackTrashCard;
-    this._setEventListeners();
+    this._setEventsListener();
   }
 
   _setEventsListener() {
@@ -25,7 +25,6 @@ export class PopupWithConfirmation extends Popup {
   _handlerSubmitListener = (evt) => {
     evt.preventDefault();
     this._callBackTrashCard();
-    this._close();
   };
 
 }

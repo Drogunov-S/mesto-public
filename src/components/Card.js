@@ -1,11 +1,18 @@
 export class Card {
-  constructor(properties, data, idTemplate, handleCardClick, handlerTrashClick, deleteCallback, likeCallback, unlikeCallback, ownerId) {
-    this._link = data.link;
-    this._id = data._id;
-    this._likes = data.likes;
-    this._isLike = this._likes.some(liker => liker['_id'] === ownerId);
-    this._isOwner = data.owner._id === ownerId;
-    this._name = data.name;
+  constructor(
+      properties,
+      {link, name, _id, likes, owner},
+      idTemplate,
+      handlePopupImage, handlerPopupConfirmation,
+      deleteCallback, toggleLikeCallback,
+      ownerId
+  ) {
+    this._link = link;
+    this._id = _id;
+    this._likes = likes;
+    this.isLike = this._likes.some(liker => liker['_id'] === ownerId);
+    this._isOwner = owner._id === ownerId;
+    this._name = name;
     this._idTemplate = idTemplate;
     this._eventClick = 'click';
     this._cardSelector = properties.cardSelector;
@@ -16,11 +23,10 @@ export class Card {
     this._activeLikeClass = properties.activeLikeClass;
     this._counterLikesSelector = properties.counterLikesSelector;
     this._btnTrashActiveClass = properties.btnTrashActiveClass;
-    this._handleCardClick = handleCardClick;
-    this._handlerTrashClick = handlerTrashClick;
+    this._handlePopupImage = handlePopupImage;
+    this._handlerPopupConfirmation = handlerPopupConfirmation;
     this._deleteCallBack = deleteCallback;
-    this._likeCallback = likeCallback;
-    this._unlikeCallback = unlikeCallback;
+    this._toggleLikeCallback = toggleLikeCallback
   }
 
   /**
@@ -34,7 +40,7 @@ export class Card {
     const imageCaption = this._newCard.querySelector(this._cardCaptionSelector);
     imageCaption.textContent = this._name;
     this._likeElement = this._newCard.querySelector(this._cardLikeSelector);
-    if (this._isLike) {
+    if (this.isLike) {
       this._likeElement.classList.add(this._activeLikeClass)
     }
     this._counterLikes = this._newCard.querySelector(this._counterLikesSelector);
@@ -49,14 +55,22 @@ export class Card {
       const trashBtm = this._newCard.querySelector(this._btnTrashSelector);
       trashBtm.classList.add(this._btnTrashActiveClass);
       trashBtm.disabled = false;
-      trashBtm.addEventListener(this._eventClick, () => this._handlerTrashClick(this.trashCard.bind(this)));
+      trashBtm.addEventListener(this._eventClick, this._acceptDelete.bind(this));
     }
+  }
+
+  getId() {
+    return this._id;
+  }
+
+  _acceptDelete() {
+    this._handlerPopupConfirmation(() => this._deleteCallBack(this));
   }
 
 
   _setEventListeners() {
-    this._imageElement.addEventListener(this._eventClick, () => this._handleCardClick(this._link, this._name));
-    this._likeElement.addEventListener(this._eventClick, () => this._toggleLike(this._activeLikeClass))
+    this._imageElement.addEventListener(this._eventClick, () => this._handlePopupImage(this._link, this._name));
+    this._likeElement.addEventListener(this._eventClick, () => this._toggleLikeCallback(this));
   }
 
   _getTemplate() {
@@ -68,38 +82,29 @@ export class Card {
 
   /**
    * Enable \ disable like on site
-   * @param activeLikeClass
    * */
-  _toggleLike(activeLikeClass) {
-    this._isLike
-        ? this._disableLike()
-        : this._activeLike();
+  _toggleLike() {
+    this.isLike
+        ? this._activeLike()
+        : this._disableLike();
   }
 
   _activeLike() {
     this._likeElement.classList.add(this._activeLikeClass);
-    this._updateCard(this._likeCallback(this._id));
-    this._isLike = true;
   }
 
   _disableLike() {
     this._likeElement.classList.remove(this._activeLikeClass);
-    this._updateCard(this._unlikeCallback(this._id));
-    this._isLike = false;
   }
 
-  _updateCard(callback) {
-    callback.then(card => {
-      this._likes = card.likes;
-      this._counterLikes.textContent = this._likes.length;
-    })
+  update({likes}, isLike) {
+    this.isLike = isLike;
+    this._likes = likes;
+    this._counterLikes.textContent = likes.length;
+    this._toggleLike();
   }
 
-  /**
-   * Trash card
-   * */
   trashCard() {
-    this._deleteCallBack(this._id);
     this._newCard.remove();
   }
 }

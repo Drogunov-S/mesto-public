@@ -52,8 +52,7 @@ export class Api {
     return fetch('https://nomoreparties.co/v1/cohort-62/cards/' + cardId, {
       method: "DELETE",
       headers: this._headers
-    })
-        .then(response => response.json());
+    });
   }
 
   likeCard(cardId) {

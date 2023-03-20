@@ -13,7 +13,9 @@
   <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo">
 </header>
 <section class="profile page__profile" aria-label="Профиль">
-  <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар" class="profile__avatar-image">
+  <div class="profile__avatar-overlay">
+    <img src="<%=require('./images/avatar.jpg')%>" alt="Аватар" class="profile__avatar-image">
+  </div>
   <div class="profile__info">
     <div class="profile__edit">
       <h1 class="profile__full-name">Жак-Ив Кусто</h1>
@@ -36,10 +38,10 @@
     <button class="popup__close" type="button"></button>
     <div class="data-form">
       <h2 class="data-form__title">Редактировать профиль</h2>
-      <form class="data-form__form" name="profileForm" novalidate>
+      <form class="data-form__form" name="formProfile" novalidate>
         <input class="data-form__input data-form__input_type_text-fullname"
-               id="fullname"
-               name="fullname"
+               id="name"
+               name="name"
                type="text"
                aria-label="Изменить имя"
                placeholder="Имя"
@@ -47,10 +49,10 @@
                maxlength="40"
                required
         >
-        <span class="data-form__input-error data-form__input-error_type_fullname"></span>
+        <span class="data-form__input-error data-form__input-error_type_name"></span>
         <input class="data-form__input data-form__input_type_text-position"
-               id="position"
-               name="position"
+               id="about"
+               name="about"
                type="text"
                aria-label="Изменить о себе"
                placeholder="О себе"
@@ -58,7 +60,29 @@
                maxlength="200"
                required
         >
-        <span class="data-form__input-error data-form__input-error_type_position"></span>
+        <span class="data-form__input-error data-form__input-error_type_about"></span>
+        <button class="data-form__btn-save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="popup-edit-avatar popup page__popup">
+  <div class="popup__container">
+    <button class="popup__close" type="button"></button>
+    <div class="data-form popup__item">
+      <h2 class="data-form__title">Обновить аватар</h2>
+      <form class="data-form__form" name="formEditAvatar" novalidate>
+        <label class="data-form__field">
+          <input class="data-form__input data-form__input_type_url"
+                 id="avatar"
+                 name="avatar"
+                 type="url"
+                 aria-label="Ссылка на картинку"
+                 placeholder="Ссылка на картинку"
+                 required
+          >
+          <span class="data-form__input-error data-form__input-error_type_avatar"></span>
+        </label>
         <button class="data-form__btn-save" type="submit">Сохранить</button>
       </form>
     </div>
@@ -73,7 +97,7 @@
         <label class="data-form__field">
           <input class="data-form__input data-form__input_type_post-title"
                  id="title"
-                 name="title"
+                 name="name"
                  type="text"
                  aria-label="Название места"
                  placeholder="Название"
@@ -81,18 +105,18 @@
                  maxlength="30"
                  required
           >
-          <span class="data-form__input-error data-form__input-error_type_title"></span>
+          <span class="data-form__input-error data-form__input-error_type_name"></span>
         </label>
         <label class="data-form__field">
           <input class="data-form__input data-form__input_type_url"
-                 id="url"
-                 name="url"
+                 id="link"
+                 name="link"
                  type="url"
                  aria-label="Ссылка на картинку"
                  placeholder="Ссылка на картинку"
                  required
           >
-          <span class="data-form__input-error data-form__input-error_type_url"></span>
+          <span class="data-form__input-error data-form__input-error_type_link"></span>
         </label>
         <button class="data-form__btn-save" type="submit">Создать</button>
       </form>
@@ -108,14 +132,27 @@
     </figure>
   </div>
 </div>
-<div></div>
+<div class="popup-confirmation popup page__popup">
+  <div class="popup__container">
+    <button class="popup__close" type="button"></button>
+    <div class="data-form popup__item">
+      <h2 class="data-form__title">Вы уверены?</h2>
+      <form class="data-form__form" name="formConfirmation" novalidate>
+        <button class="data-form__btn-save" type="submit">Да</button>
+      </form>
+    </div>
+  </div>
+</div>
 <template id="card-template">
   <article class="card">
     <img class="card__image" src="#" alt="">
-    <button class="card__btn_type_trash" type="button"></button>
+    <button class="card__btn_type_trash" type="button" disabled></button>
     <div class="card__info">
       <h2 class="card__caption"></h2>
-      <button class="card__like" type="button"></button>
+      <div class="card__wrapper-like">
+        <button class="card__like" type="button"></button>
+        <span class="card__counter"></span>
+      </div>
     </div>
   </article>
 </template>

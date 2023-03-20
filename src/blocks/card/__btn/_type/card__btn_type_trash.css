@@ -8,6 +8,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  visibility: hidden;
 }
 
 .card__btn_type_trash:hover {

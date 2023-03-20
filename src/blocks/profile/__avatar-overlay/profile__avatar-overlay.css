@@ -1,0 +1,19 @@
+.profile__avatar-overlay {
+  font-size: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile__avatar-overlay::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.profile__avatar-overlay:hover::after {
+  background: rgba(0, 0, 0, .8) url('../../../images/edit-pen.svg') no-repeat center center;
+  background-size: 26px 26px;
+}

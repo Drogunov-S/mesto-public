@@ -21,7 +21,7 @@ export class FormValidator {
    * */
   _showInputError(formElement, inputField, validationMessage) {
     /** Select current <span> error block for id*/
-    const errorField = formElement.querySelector(`${this._patternErrorSelector + inputField.id}`);
+    const errorField = formElement.querySelector(`${this._patternErrorSelector + inputField.name}`);
     /** Enable CSS for current <input>*/
     inputField.classList.add(this._inputErrorClass);
     /** Show error text*/
@@ -40,7 +40,7 @@ export class FormValidator {
    *  *   }
    *  * */
   _hideInputError(formElement, inputField) {
-    const errorField = formElement.querySelector(`${this._patternErrorSelector + inputField.id}`);
+    const errorField = formElement.querySelector(`${this._patternErrorSelector + inputField.name}`);
     inputField.classList.remove(this._inputErrorClass);
     errorField.classList.remove(this._errorClass);
     errorField.textContent = '';

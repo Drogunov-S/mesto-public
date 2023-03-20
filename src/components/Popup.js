@@ -6,17 +6,17 @@ export class Popup {
   open() {
     // debugger
     this._popup.classList.add('popup_opened');
-    this.setEventsListener();
+    this._setEventsListener();
   }
 
-  close() {
+  _close() {
     this._popup.classList.remove("popup_opened");
     this._removeEventsListener();
   }
 
   _handleEscClose = (evt) => {
     if (evt.key === 'Escape') {
-      this.close();
+      this._close();
     }
   }
 
@@ -27,11 +27,11 @@ export class Popup {
           || currentClass === 'popup__close';
     })
     if (hasClose) {
-      this.close();
+      this._close();
     }
   }
 
-  setEventsListener() {
+  _setEventsListener() {
     document.addEventListener('keydown', this._handleEscClose);
     this._popup.addEventListener('mousedown', this._standardClose);
   }

@@ -26,7 +26,8 @@ import {
   profileFullnameSelector,
   profilePositionSelector,
   profileAddBtnSelector,
-  profileAvatarSelector
+  profileAvatarSelector,
+  profileAvatarOverlaySelecor
 } from '../utils/constants';
 
 
@@ -78,25 +79,35 @@ const popupEditAvatar = new PopupWithForm(popupEditAvatarSelector, (data) => {
 const popupWithConfirmation = new PopupWithConfirmation(propertiesPopupWithConfirmation);
 
 /* ----------------------------- Enable validation -----------------------------*/
-new FormValidator(propertiesValidator, document.formProfile).enableValidation();
-new FormValidator(propertiesValidator, document.formNewPost).enableValidation();
-new FormValidator(propertiesValidator, document.formEditAvatar).enableValidation();
+const profileFormValidator = new FormValidator(propertiesValidator, document.formProfile);
+profileFormValidator.enableValidation();
+const newPostFormValidator = new FormValidator(propertiesValidator, document.formNewPost);
+newPostFormValidator.enableValidation();
+const editAvatarFormValidator = new FormValidator(propertiesValidator, document.formEditAvatar);
+editAvatarFormValidator.enableValidation();
 
 /* ----------------------------- Default listeners -----------------------------*/
 document
     .querySelector(profileEditBtnSelector)
     .addEventListener(clickEvent, () => {
       popupEditProfile.open();
+      profileFormValidator.resetErrors();
       popupEditProfile.setDefaultValue(userInfo.getUserInfo());
     });
 
 document
-    .querySelector(".profile__avatar-overlay")
-    .addEventListener(clickEvent, popupEditAvatar.open.bind(popupEditAvatar))
+    .querySelector(profileAvatarOverlaySelecor)
+    .addEventListener(clickEvent, () => {
+      editAvatarFormValidator.resetErrors();
+      popupEditAvatar.open();
+    })
 
 document
     .querySelector(profileAddBtnSelector)
-    .addEventListener(clickEvent, popupAddPost.open.bind(popupAddPost));
+    .addEventListener(clickEvent, () => {
+      newPostFormValidator.resetErrors();
+      popupAddPost.open();
+    });
 
 
 /* ----------------------------- Section -----------------------------*/

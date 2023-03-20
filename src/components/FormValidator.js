@@ -107,6 +107,13 @@ export class FormValidator {
     this._formElement.addEventListener("submit", (evt) => evt.preventDefault());
     this._setEventListeners();
   }
+
+  resetErrors() {
+    this._inputList.forEach(input => {
+      this._hideInputError(this._formElement, input);
+    })
+    this._toggleButtonState();
+  }
 }
 
 

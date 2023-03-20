@@ -14,6 +14,7 @@ const clickEvent = 'click';
 const profileFullnameSelector = '.profile__full-name';
 const profilePositionSelector = '.profile__position';
 const profileAvatarSelector = '.profile__avatar-image';
+const profileAvatarOverlaySelecor = '.profile__avatar-overlay';
 
 export {
   popupAddPostSelector,
@@ -27,5 +28,6 @@ export {
   clickEvent,
   profileFullnameSelector,
   profilePositionSelector,
-  profileAvatarSelector
+  profileAvatarSelector,
+  profileAvatarOverlaySelecor
 };

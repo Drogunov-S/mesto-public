@@ -39,25 +39,14 @@ const userInfo = new UserInfo(
 );
 
 /* ----------------------------- popups -----------------------------*/
-const popupImage = new PopupWithImage(popupImageSelector, propertiesPopupWithImage);
-
-const popupAddPost = new PopupWithForm(popupAddPostSelector, (data) => {
-  api.postCard(data)
-      .then(cardData => {
-        const rendererCard = sectionCards.renderItem(cardData);
-        sectionCards.addItem(rendererCard)
-      })
-      .catch(console.log)
-      .then(() => popupAddPost.close())
-});
-
 const popupEditProfile = new PopupWithForm(popupEditProfileSelector,
     (data) => {
       popupEditProfile.isLoadingData(true, "Сохранение...");
       api.updateUserInfo(data)
-          .then(userData => userInfo.setUserInfo(userData))
-          .catch(console.log)
-          .then(() => popupEditProfile.close())
+          .then(userData => {
+            userInfo.setUserInfo(userData);
+            popupEditProfile.close();
+          })
           .catch(console.log)
           .finally(() => {
             popupEditProfile.isLoadingData(false, "Сохранить");
@@ -67,14 +56,27 @@ const popupEditProfile = new PopupWithForm(popupEditProfileSelector,
 const popupEditAvatar = new PopupWithForm(popupEditAvatarSelector, (data) => {
   popupEditAvatar.isLoadingData(true, "Сохранение...");
   api.updateAvatar(data)
-      .then(userData => userInfo.setAvatar(userData.avatar))
-      .catch(console.log)
-      .then(() => popupEditAvatar.close())
+      .then(userData => {
+        userInfo.setAvatar(userData.avatar);
+        popupEditAvatar.close();
+      })
       .catch(console.log)
       .finally(() => {
         popupEditAvatar.isLoadingData(false, "Сохранить");
       });
 });
+
+const popupAddPost = new PopupWithForm(popupAddPostSelector, (data) => {
+  api.postCard(data)
+      .then(cardData => {
+        const rendererCard = sectionCards.renderItem(cardData);
+        sectionCards.addItem(rendererCard);
+        popupAddPost.close();
+      })
+      .catch(console.log)
+});
+
+const popupImage = new PopupWithImage(popupImageSelector, propertiesPopupWithImage);
 
 const popupWithConfirmation = new PopupWithConfirmation(propertiesPopupWithConfirmation);
 
@@ -136,11 +138,13 @@ const toggleLikeCallback = (card) => {
         .then(updatedCard => {
           card.update(updatedCard, true);
         })
+        .catch(console.log)
   } else {
     api.unlikeCard(id)
         .then(updatedCard => {
           card.update(updatedCard, false);
         })
+        .catch(console.log)
   }
 }
 
@@ -149,28 +153,23 @@ const deleteCardCallback = (card) => {
       .then(response => {
         if (response.ok) {
           card.trashCard();
+          popupWithConfirmation.close();
         }
       })
-      .catch(err => `Delete error: ${err}`)
-      .then(() => popupWithConfirmation.close())
       .catch(console.log);
 }
 
 /* ----------------------------- Init -----------------------------*/
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-    .then(arr => {
-      userInfo.setUserInfo(arr[0]);
-      return Promise.resolve(arr[1]);
-    })
     .catch(console.log)
-    .then(cards => {
+    .then(([userData, cards]) => {
+      userInfo.setUserInfo(userData);
       cards.reverse();
       cards.forEach(card => {
         const newCard = sectionCards.renderItem(card,);
         sectionCards.addItem(newCard);
       })
     })
-    .catch(err => console.log(`${err} Даже не знаю какая тут может быть ошибка.`));
-
+    .catch(console.log);
 
 

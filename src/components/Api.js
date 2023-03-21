@@ -8,8 +8,7 @@ export class Api {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "GET",
       headers: this._headers
-    })
-        .then(response => this._checkResponse(response));
+    }).then(response => this._checkResponse(response));
   }
 
   updateUserInfo(userData) {
@@ -17,8 +16,7 @@ export class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify(userData)
-    })
-        .then(response => this._checkResponse(response));
+    }).then(response => this._checkResponse(response));
   }
 
   updateAvatar(urlAvatar) {
@@ -26,15 +24,13 @@ export class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(urlAvatar)
-    })
-        .then(response => this._checkResponse(response))
+    }).then(response => this._checkResponse(response))
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
-    })
-        .then(response => this._checkResponse(response))
+    }).then(response => this._checkResponse(response))
 
   }
 
@@ -43,12 +39,10 @@ export class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify(data)
-    })
-        .then(response => this._checkResponse(response));
+    }).then(response => this._checkResponse(response));
   }
 
   deleteCard(cardId) {
-    // debugger
     return fetch('https://nomoreparties.co/v1/cohort-62/cards/' + cardId, {
       method: "DELETE",
       headers: this._headers

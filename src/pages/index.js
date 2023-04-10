@@ -161,7 +161,6 @@ const deleteCardCallback = (card) => {
 
 /* ----------------------------- Init -----------------------------*/
 Promise.all([api.getUserInfo(), api.getInitialCards()])
-    .catch(console.log)
     .then(([userData, cards]) => {
       userInfo.setUserInfo(userData);
       cards.reverse();
